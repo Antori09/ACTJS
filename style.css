@@ -1,0 +1,42 @@
+
+.contenedor-principal {
+    display: flex;        
+    flex-direction: row;  
+    justify-content: center; 
+    gap: 1.25em;             
+    padding: 1.25em;
+}
+#game1{
+    background-color: burlywood;
+    contain: layout;
+    width: 35em;
+    height:9em ;
+    border-color: black;
+    border-radius: 2em;
+    text-align: center;
+}
+#game2{
+    background-color: burlywood;
+    align-content: flex-start;
+    width: 35em;
+    height:9em ;
+    border-color: black;
+    border-radius: 2em;
+    text-align: center;
+}
+
+button{
+    color: black;
+    background-color: azure;
+    border-radius: 2rem;
+}
+
+button:hover{
+    color:aliceblue;
+    background-color: black;
+}
+
+
+h1{
+    font-family: 'Courier New', Courier, monospace;
+}
