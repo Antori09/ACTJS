@@ -10,7 +10,7 @@ function comprobar() {
     if (intentos > 0) {
 
         if (datoUsuario == numeroSecreto) {
-            mensaje.innerText = "¡Felicidades! 🎉 Has acertado. Solo neceseitaste: " + intentosusados + " Intentos";
+            mensaje.innerText = "¡Felicidades! Has acertado. Solo neceseitaste: " + intentosusados + " Intentos";
             mensaje.style.color = "green";
         } else {
             intentos = intentos - 1;
