@@ -15,16 +15,15 @@
     border-radius: 2em;
     text-align: center;
 }
-#game2{
-    background-color: burlywood;
-    align-content: flex-start;
+#game2,#game3{
+    background-color: rgb(219, 193, 113);
+    align-content: layout;
     width: 35em;
     height:9em ;
     border-color: black;
     border-radius: 2em;
     text-align: center;
 }
-
 button{
     color: black;
     background-color: azure;
