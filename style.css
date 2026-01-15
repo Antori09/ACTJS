@@ -1,4 +1,8 @@
 /* Configuración global */
+* {
+    box-sizing: border-box;
+    background-color: antiquewhite;
+}
 body {
     background-color: #1a1a1a;
     margin: 0;
@@ -45,13 +49,16 @@ body {
     border: 2px solid #333;
     border-radius: 2em;
     text-align: center;
+    font-size: large;
     padding: 1.5em;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 h1 {
     font-size: 1.2em;
-    color: #333;
+    color: #100f0f;
     margin-bottom: 1em;
+    text-align: center;
+    font-size: x-large;
 }
 input {
     border-radius: 1em;
