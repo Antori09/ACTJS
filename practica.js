@@ -46,8 +46,8 @@ function sumar() {
 }
 
 
-let gameSequence = []; // Colores que elige la máquina
-let userSequence = []; // Colores que pulsa el usuario
+let gameSequence = []; 
+let userSequence = []; 
 let level = 0;
 const colors = ['red', 'green', 'blue', 'yellow'];
 
@@ -61,13 +61,10 @@ function startGame() {
 function nextStep() {
     userSequence = [];
     level++;
-
-    // 1. Elegir color aleatorio
     const randomColor = colors[Math.floor(Math.random() * 4)];
     gameSequence.push(randomColor);
 
-    // 2. Mostrar la secuencia al usuario (por ahora solo el último)
-    // Reto: intenta hacer un bucle que recorra gameSequence
+
     flashButton(randomColor);
 }
 
@@ -83,15 +80,13 @@ function userClick(color) {
     userSequence.push(color);
     flashButton(color);
 
-    // Aquí es donde practicarás la lógica de comparación:
     checkAnswer(userSequence.length - 1);
 }
 
 function checkAnswer(currentIndex) {
-    // Compara si el último click coincide con la secuencia de la máquina
     if (userSequence[currentIndex] === gameSequence[currentIndex]) {
         if (userSequence.length === gameSequence.length) {
-            setTimeout(nextStep, 1000); // ¡Correcto! Siguiente nivel
+            setTimeout(nextStep, 1000);
         }
     } else {
         alert("¡Perdiste! Inténtalo de nuevo");
