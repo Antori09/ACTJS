@@ -44,3 +44,5 @@ function sumar() {
 
     resultadoPantalla.innerText = "El resultado es: " + suma;
 }
+
+
