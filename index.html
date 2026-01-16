@@ -3,14 +3,17 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
-    <title>Reto JS</title>
+    <link rel="icon" type="image/png" href="SRC/miweb.png">
+    <title> Reto JS</title>
 </head>
 
 <body>
-            <h1>Reto JavaScript</h1>
-
-    <div class="contenedor-principal">
-        <div class="game1">
+<div class = "contenedor-principal">
+<header>
+    <button class="RELOAD" onclick="location.reload()">RELOAD</button>
+</header>
+    <div class="contenedor-secundario">
+        <div class="games">
             <h1>Adivina el número (1 al 10)</h1>
             <input type="number" id="entradaUsuario" placeholder="Pon un número">
             <button onclick="comprobar()">¡Probar suerte!</button>
@@ -18,7 +21,7 @@
             <p id="intentos"></p>
         </div>
 
-        <div class="game2">
+        <div class="games">
             <h1>Suma estos dos numero</h1>
             <input type="number" id="num1" placeholder="Pon el primer numero">
             <input type="number" id="num2" placeholder="Pon el segundo numero">
@@ -26,7 +29,7 @@
             <p id="suma"></p>
         </div>
 
-        <div class="game3">
+        <div class="games">
             <h1>Simon say</h1>
             <div id="simon-grid">
                 <div class="color-button red" id="red" onclick="userClick('red')"></div>
@@ -35,12 +38,36 @@
                 <div class="color-button yellow" id="yellow" onclick="userClick('yellow')"></div>
             </div>
         </div>
-
-        <div class="RELOAD">
-            <button onclick="location.reload()">Reiniciar juegos</button>
+    </div>
+    <div class="contenedor-secundario">
+        <div class="games">
+            <h1>Adivina el número (1 al 10)</h1>
+            <input type="number" id="entradaUsuario" placeholder="Pon un número">
+            <button onclick="comprobar()">¡Probar suerte!</button>
+            <p id="mensaje"></p>
+            <p id="intentos"></p>
+        </div>
+    
+        <div class="games">
+            <h1>Suma estos dos numero</h1>
+            <input type="number" id="num1" placeholder="Pon el primer numero">
+            <input type="number" id="num2" placeholder="Pon el segundo numero">
+            <button onclick="sumar()">Realizar suma</button>
+            <p id="suma"></p>
+        </div>
+    
+        <div class="games">
+            <h1>Simon say</h1>
+            <div id="simon-grid">
+                <div class="color-button red" id="red" onclick="userClick('red')"></div>
+                <div class="color-button green" id="green" onclick="userClick('green')"></div>
+                <div class="color-button blue" id="blue" onclick="userClick('blue')"></div>
+                <div class="color-button yellow" id="yellow" onclick="userClick('yellow')"></div>
+            </div>
         </div>
     </div>
     
+</div>
     <script src="practica.js"></script>
 </body>
 
