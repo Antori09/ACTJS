@@ -31,18 +31,13 @@
                 <button onclick="sumar()">Realizar suma</button>
                 <p id="suma"></p>
             </div>
-
             <div class="games">
-                <h1>Juego de memoria </h1>
-                <div id="simon-grid">
-                    <div class="color-button red" id="red" onclick="userClick('red')"></div>
-                    <div class="color-button green" id="green" onclick="userClick('green')"></div>
-                    <div class="color-button blue" id="blue" onclick="userClick('blue')"></div>
-                    <div class="color-button yellow" id="yellow" onclick="userClick('yellow')"></div>
-                    <div id="score">Puntuacion 0</div>
-                    <button onclick="startGame()">Iniciar Juego</button>
-                </div>
+                <h1>Convertidor de Temperatura</h1>
+                <input type="number" id="celsiusInput" placeholder="Temperatura en Celsius">
+                <button onclick="convertToFahrenheit()">Convertir a Fahrenheit</button>
+                <p id="fahrenheitOutput"></p>
             </div>
+
         </div>
         <div class="contenedor-secundario">
             <div class="games">
@@ -66,6 +61,7 @@
                 <p id="bmiResult"></p>
             </div>
         </div>
+        <h2>Juegos Avanzados</h2>
         <div class="contenedor-secundario">
             <div class="games">
                 <h1>DEV Clicker</h1>
@@ -82,6 +78,17 @@
                     <p id="multiplierStatus"></p>
                 </div>
                 <p id="clickCount">Clics: 0</p>
+            </div>
+            <div class="games">
+                <h1>Juego de memoria </h1>
+                <div id="simon-grid">
+                    <div class="color-button red" id="red" onclick="userClick('red')"></div>
+                    <div class="color-button green" id="green" onclick="userClick('green')"></div>
+                    <div class="color-button blue" id="blue" onclick="userClick('blue')"></div>
+                    <div class="color-button yellow" id="yellow" onclick="userClick('yellow')"></div>
+                    <div id="score">Puntuacion 0</div>
+                    <button onclick="startGame()">Iniciar Juego</button>
+                </div>
             </div>
         </div>
 

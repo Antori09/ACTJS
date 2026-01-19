@@ -178,7 +178,12 @@ button {
 .resetB:hover {
     background-color: orangered;
 }
-
+h2 {
+    text-align: center;
+    color: #faf5f5;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
 button:hover {
     color: aliceblue;
     background-color: black;

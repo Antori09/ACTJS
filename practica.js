@@ -189,7 +189,7 @@ function buyDoublePlugin() {
         clickCount -= multiplierCost; 
         clickValue *= 2;             
         multiplierCost *= 2; 
-                
+
 
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
         document.getElementById('multiplierStatus').innerText = 'Poder de Clic: x' + clickValue;
@@ -216,4 +216,18 @@ function buyAutoClickerPlugin() {
 function resetClicks() {
     clickCount = 0;
     document.getElementById('clickCount').innerText = 'Clics: 0';
+}
+
+function convertToFahrenheit() {
+    const celsiusInput = document.getElementById('celsiusInput').value;
+    const fahrenheitOutput = document.getElementById('fahrenheitOutput');
+    const celsius = parseFloat(celsiusInput);
+    if (isNaN(celsius)) {
+        fahrenheitOutput.innerText = "Por favor, ingresa un valor numérico válido.";
+        fahrenheitOutput.style.color = "red";
+        return;
+    }
+    const fahrenheit = (celsius * 9/5) + 32;
+    fahrenheitOutput.innerText = `Temperatura en Fahrenheit: ${fahrenheit.toFixed(2)} °F`;
+    fahrenheitOutput.style.color = "green";
 }
