@@ -188,15 +188,29 @@ function buyDoublePlugin() {
     if (clickCount >= multiplierCost) {
         clickCount -= multiplierCost; 
         clickValue *= 2;             
-        multiplierCost *= 3;         
+        multiplierCost *= 2;         
 
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
         document.getElementById('multiplierStatus').innerText = 'Poder de Clic: x' + clickValue;
         document.getElementById('btnMultiplier').innerText = 'Comprar X2 (Costo: ' + multiplierCost + ')';
     } else {
-        alert("¡No tienes suficientes clics para este plugin!");
+        document.getElementById('multiplierStatus').innerText = 'No tienes suficientes clics para comprar el poder X2.';
+        document.getElementById('multiplierStatus').style.color = "red";
     }
 }
+
+function buyAutoClickerPlugin() {
+    if (clickCount >= 200) {
+        clickCount -= 200;
+        setInterval(incrementClicks, 1000);
+        document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
+        document.getElementById('autoclickerStatus').innerText = 'Autoclicker activado.';
+    } else {
+        document.getElementById('autoclickerStatus').innerText = 'No tienes suficientes clics para comprar el autoclicker.';
+        document.getElementById('autoclickerStatus').style.color = "red";
+    }
+}
+
 
 function resetClicks() {
     clickCount = 0;
