@@ -175,6 +175,9 @@ button {
     font-weight: bold;
     transition: background-color 0.3s;
 }
+.resetB:hover {
+    background-color: orangered;
+}
 
 button:hover {
     color: aliceblue;
@@ -182,7 +185,17 @@ button:hover {
     transform: translateY(-2px);
 }
 
-img:hover {
-    transform: translateY(-2px);
-    animation: backwards 0.5s ease-in-out;
+#clickerImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    cursor: pointer;
+    transition: 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    user-select: none;
+}
+
+.expanding {
+    transform: scale(1.15);
+
 }

@@ -156,18 +156,25 @@ function calculateBMI() {
 }
 let clickCount = 0;
 let count = 0;
+
 function incrementClicks() {
     clickCount++;
     document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
+
     if (clickCount % 10 === 0) {
         count++;
-        document.getElementById('milestoneCount').innerText = 'Hitos alcanzados: ' + count;
+        const milestone = document.getElementById('milestoneCount');
+        if (milestone) milestone.innerText = 'Hitos alcanzados: ' + count;
     }
+    const img = document.getElementById('clickerImage');
+    img.classList.add('expanding');
+    setTimeout(() => {
+        img.classList.remove('expanding');
+    }, 100);
 }
+
 
 function resetClicks() {
     clickCount = 0;
-    count = 0;
-    document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
-    document.getElementById('milestoneCount').innerText = 'Hitos alcanzados: ' + count;
+    document.getElementById('clickCount').innerText = 'Clics: 0';
 }
