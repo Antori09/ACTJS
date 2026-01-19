@@ -61,7 +61,7 @@
                 <p id="bmiResult"></p>
             </div>
         </div>
-        <h2>Juegos Avanzados</h2>
+        <h2>Juegos</h2>
         <div class="contenedor-secundario">
             <div class="games">
                 <h1>DEV Clicker</h1>
@@ -73,9 +73,10 @@
                        <p onselect="clickCount()"> Doble Clics (Costo: 50 clics)</p>
                     </button>
                     <button id="btnAutoClicker" onclick="buyAutoClickerPlugin()">
-                        Auto Clics (Costo: 20000 clics)
+                        <p onselect="clickCount()"> Autoclicker (Costo: 200 clics)</p>
                     </button>
                     <p id="multiplierStatus"></p>
+                    <p id="autoClickerStatus"></p>
                 </div>
                 <p id="clickCount">Clics: 0</p>
             </div>

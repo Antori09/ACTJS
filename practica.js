@@ -157,6 +157,7 @@ function calculateBMI() {
 let clickCount = 0;
 let count = 0;
 let multiplierCost = 50;
+let autoclickerCost = 200;
 let clickValue = 1;
 
 function incrementClicks() {
@@ -201,14 +202,19 @@ function buyDoublePlugin() {
 }
 
 function buyAutoClickerPlugin() {
-    if (clickCount >= 200) {
-        clickCount -= 200;
+    if (clickCount >= autoclickerCost) {
+        clickCount -= autoclickerCost;
+        autoclickerCost *= 2;
+        
         setInterval(incrementClicks, 1000);
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
-        document.getElementById('autoclickerStatus').innerText = 'Autoclicker activado.';
+        document.getElementById('autoClickerStatus').innerText = 'Autoclicker activado.';
+        document.getElementById('btnAutoClicker').innerText = 'Comprar Autoclicker (Costo: ' + autoclickerCost + ')';
+        document.getElementById('autoClickerStatus').style.color = "limegreen";
+
     } else {
-        document.getElementById('autoclickerStatus').innerText = 'No tienes suficientes clics para comprar el autoclicker.';
-        document.getElementById('autoclickerStatus').style.color = "red";
+        document.getElementById('autoClickerStatus').innerText = 'No tienes suficientes clics para comprar el autoclicker.';
+        document.getElementById('autoClickerStatus').style.color = "red";
     }
 }
 
