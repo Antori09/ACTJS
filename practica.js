@@ -46,21 +46,26 @@ function sumar() {
 }
 
 
-let gameSequence = []; 
-let userSequence = []; 
+let gameSequence = [];
+let userSequence = [];
 let level = 0;
+let puntuacion = 0;
 const colors = ['red', 'green', 'blue', 'yellow'];
 
 function startGame() {
     gameSequence = [];
     userSequence = [];
     level = 0;
+    puntuacion = 0;
     nextStep();
 }
 
 function nextStep() {
     userSequence = [];
     level++;
+    puntuacion += 10;
+    document.getElementById("nivel").innerText = "Nivel: " + level;
+    document.getElementById("puntuacion").value = puntuacion;
     const randomColor = colors[Math.floor(Math.random() * 4)];
     gameSequence.push(randomColor);
 
@@ -83,13 +88,17 @@ function userClick(color) {
     checkAnswer(userSequence.length - 1);
 }
 
+
 function checkAnswer(currentIndex) {
     if (userSequence[currentIndex] === gameSequence[currentIndex]) {
         if (userSequence.length === gameSequence.length) {
             setTimeout(nextStep, 1000);
+            puntuacion = Number(document.getElementById("puntuacion").value);
+
         }
     } else {
         alert("¡Perdiste! Inténtalo de nuevo");
         startGame();
     }
 }
+

@@ -13,37 +13,39 @@
         <button class="identificador" onclick="">SING UP</button>
         <button class="identificador" onclick="">LOGIN</button>
     </header>
-<div class = "contenedor-principal">
-    <button class="RELOAD" onclick="location.reload()">RECARGAR JUEGOS</button>
-    <div class="contenedor-secundario">
-        <div class="games">
-            <h1>Adivina el número (1 al 10)</h1>
-            <input type="number" id="entradaUsuario" placeholder="Pon un número">
-            <button onclick="comprobar()">¡Probar suerte!</button>
-            <p id="mensaje"></p>
-            <p id="intentos"></p>
-        </div>
+    <div class="contenedor-principal">
+        <button class="RELOAD" onclick="location.reload()">RECARGAR JUEGOS</button>
+        <div class="contenedor-secundario">
+            <div class="games">
+                <h1>Adivina el número (1 al 10)</h1>
+                <input type="number" id="entradaUsuario" placeholder="Pon un número">
+                <button onclick="comprobar()">¡Probar suerte!</button>
+                <p id="mensaje"></p>
+                <p id="intentos"></p>
+            </div>
 
-        <div class="games">
-            <h1>Suma estos dos numero</h1>
-            <input type="number" id="num1" placeholder="Pon el primer numero">
-            <input type="number" id="num2" placeholder="Pon el segundo numero">
-            <button onclick="sumar()">Realizar suma</button>
-            <p id="suma"></p>
-        </div>
+            <div class="games">
+                <h1>Suma estos dos numero</h1>
+                <input type="number" id="num1" placeholder="Pon el primer numero">
+                <input type="number" id="num2" placeholder="Pon el segundo numero">
+                <button onclick="sumar()">Realizar suma</button>
+                <p id="suma"></p>
+            </div>
 
-        <div class="games">
-            <h1>Juego de memoria </h1>
-            <div id="simon-grid">
-                <div class="color-button red" id="red" onclick="userClick('red')"></div>
-                <div class="color-button green" id="green" onclick="userClick('green')"></div>
-                <div class="color-button blue" id="blue" onclick="userClick('blue')"></div>
-                <div class="color-button yellow" id="yellow" onclick="userClick('yellow')"></div>
-                <button onclick="startGame()">Iniciar Juego</button>
+            <div class="games">
+                <h1>Juego de memoria </h1>
+                <div id="simon-grid">
+                    <div class="color-button red" id="red" onclick="userClick('red')"></div>
+                    <div class="color-button green" id="green" onclick="userClick('green')"></div>
+                    <div class="color-button blue" id="blue" onclick="userClick('blue')"></div>
+                    <div class="color-button yellow" id="yellow" onclick="userClick('yellow')"></div>
+                    <button onclick="startGame()">Iniciar Juego</button>
+                    <p id="nivel">Nivel: 0</p>
+                    <p>Puntuación: <input type="text" id="puntuacion" value="0" readonly></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <script src="practica.js"></script>
 </body>
 
