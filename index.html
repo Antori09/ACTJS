@@ -9,12 +9,12 @@
 
 <body>
     <header style="text-align: right;">
-        <h1 style="position: fixed;">Reto JS</h1>
+        <h1 class = "titulo" oneclick = "location.reload()">Reto JS</h1>
         <button class="identificador" onclick="">SING UP</button>
         <button class="identificador" onclick="">LOGIN</button>
     </header>
     <div class="contenedor-principal">
-        <button class="RELOAD" onclick="location.reload()">RECARGAR JUEGOS</button>
+        <button class="RELOAD" onclick= "location.reload()">RECARGAR JUEGOS</button>
         <div class="contenedor-secundario">
             <div class="games">
                 <h1>Adivina el número (1 al 10)</h1>
@@ -58,6 +58,12 @@
                 <button onclick="generateUsername()">Generar Nombre de Usuario</button>
                 <p id="username"></p>
             </div>
+            <div class="games">
+                <h1>Calculadora de IMC</h1>
+                <input type="number" id="weight" placeholder="Peso en kg">
+                <input type="number" id="height" placeholder="Altura en metros">
+                <button onclick="calculateBMI()">Calcular IMC</button>
+                <p id="bmiResult"></p>
         </div>
         <script src="practica.js"></script>
 </body>

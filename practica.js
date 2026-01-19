@@ -131,3 +131,26 @@ function generateUsername() {
     usernameDisplay.innerText = `Nombre de usuario generado: ${username}`;
     usernameDisplay.style.color = "green";
 }
+function calculateBMI() {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value);
+    const bmiResult = document.getElementById('bmiResult');
+    if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+        bmiResult.innerText = "Por favor, ingresa valores válidos para peso y altura.";
+        bmiResult.style.color = "red";
+        return;
+    }
+    const bmi = weight / (height * height);
+    let category = "";
+    if (bmi < 18.5) {
+        category = "Bajo peso";
+    } else if (bmi < 24.9) {
+        category = "Peso normal";
+    } else if (bmi < 29.9) {
+        category = "Sobrepeso";
+    } else {
+        category = "Obesidad";
+    }   
+    bmiResult.innerText = `Tu IMC es ${bmi.toFixed(2)} (${category})`;
+    bmiResult.style.color = "green";
+}
