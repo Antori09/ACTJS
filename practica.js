@@ -164,10 +164,10 @@ function incrementClicks() {
         document.getElementById('milestoneCount').innerText = 'Hitos alcanzados: ' + count;
     }
 }
-function animatecookie() {
-    const cookie = document.getElementById('cookie');
-    cookie.classList.add('animate');
-    setTimeout(() => {
-        cookie.classList.remove('animate');
-    }, 500);
+
+function resetClicks() {
+    clickCount = 0;
+    count = 0;
+    document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
+    document.getElementById('milestoneCount').innerText = 'Hitos alcanzados: ' + count;
 }

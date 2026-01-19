@@ -164,7 +164,17 @@ button {
     transform: scale(1.1);
     box-shadow: 0 0 20px rgb(251, 251, 251);
 }
-
+.resetB {
+    margin-top: 1em;
+    background-color: darkorange;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
 
 button:hover {
     color: aliceblue;
