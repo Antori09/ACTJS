@@ -204,12 +204,13 @@ function buyDoublePlugin() {
 function buyAutoClickerPlugin() {
     if (clickCount >= autoclickerCost) {
         clickCount -= autoclickerCost;
-        autoclickerCost *= 2;
+        autoclickerCost *= 3;
         
         setInterval(incrementClicks, 1000);
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
         document.getElementById('autoClickerStatus').innerText = 'Autoclicker activado.';
         document.getElementById('btnAutoClicker').innerText = 'Comprar Autoclicker (Costo: ' + autoclickerCost + ')';
+        document.getElementById('btnAutoClicker').innerText = 'Mejorar Autoclicker (Costo: ' + autoclickerCost + ')';
         document.getElementById('autoClickerStatus').style.color = "limegreen";
 
     } else {
