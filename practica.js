@@ -154,3 +154,20 @@ function calculateBMI() {
     bmiResult.innerText = `Tu IMC es ${bmi.toFixed(2)} (${category})`;
     bmiResult.style.color = "green";
 }
+let clickCount = 0;
+let count = 0;
+function incrementClicks() {
+    clickCount++;
+    document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
+    if (clickCount % 10 === 0) {
+        count++;
+        document.getElementById('milestoneCount').innerText = 'Hitos alcanzados: ' + count;
+    }
+}
+function animatecookie() {
+    const cookie = document.getElementById('cookie');
+    cookie.classList.add('animate');
+    setTimeout(() => {
+        cookie.classList.remove('animate');
+    }, 500);
+}
