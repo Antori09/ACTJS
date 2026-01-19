@@ -49,23 +49,21 @@ function sumar() {
 let gameSequence = [];
 let userSequence = [];
 let level = 0;
-let puntuacion = 0;
+let score = 0;
 const colors = ['red', 'green', 'blue', 'yellow'];
 
 function startGame() {
     gameSequence = [];
     userSequence = [];
     level = 0;
-    puntuacion = 0;
     nextStep();
 }
 
 function nextStep() {
     userSequence = [];
     level++;
-    puntuacion += 10;
-    document.getElementById("nivel").innerText = "Nivel: " + level;
-    document.getElementById("puntuacion").value = puntuacion;
+    score = (level - 1) * 10;
+    document.getElementById('score').innerText = 'Puntuacion ' + score;
     const randomColor = colors[Math.floor(Math.random() * 4)];
     gameSequence.push(randomColor);
 
@@ -88,17 +86,48 @@ function userClick(color) {
     checkAnswer(userSequence.length - 1);
 }
 
-
 function checkAnswer(currentIndex) {
     if (userSequence[currentIndex] === gameSequence[currentIndex]) {
         if (userSequence.length === gameSequence.length) {
             setTimeout(nextStep, 1000);
-            puntuacion = Number(document.getElementById("puntuacion").value);
-
         }
     } else {
         alert("¡Perdiste! Inténtalo de nuevo");
         startGame();
     }
 }
+function checkPassword() {
+    const passwordInput = document.getElementById('passwordInput').value;
+    const passwordMessage = document.getElementById('passwordMessage');
 
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(passwordInput);
+    const hasLowerCase = /[a-z]/.test(passwordInput);
+    const hasNumber = /[0-9]/.test(passwordInput);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(passwordInput);
+    if (passwordInput.length >= minLength && hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar) {
+        passwordMessage.innerText = "Contraseña segura";
+        passwordMessage.style.color = "green";
+    }
+    else {
+        passwordMessage.innerText = "Contraseña insegura. Debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.";
+        passwordMessage.style.color = "red";
+    }
+}
+function generateUsername() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const usernameDisplay = document.getElementById('username');
+
+    if (firstName === '' || lastName === '') {
+        usernameDisplay.innerText = "Por favor, ingresa tanto el nombre como el apellido.";
+        usernameDisplay.style.color = "red";
+        return;
+    }
+
+    const randomNum = Math.floor(Math.random() * 1000);
+    const username = `${firstName.toLowerCase()}.${lastName.toLowerCase()}${randomNum}`;
+
+    usernameDisplay.innerText = `Nombre de usuario generado: ${username}`;
+    usernameDisplay.style.color = "green";
+}

@@ -39,14 +39,27 @@
                     <div class="color-button green" id="green" onclick="userClick('green')"></div>
                     <div class="color-button blue" id="blue" onclick="userClick('blue')"></div>
                     <div class="color-button yellow" id="yellow" onclick="userClick('yellow')"></div>
+                    <div id="score">Puntuacion 0</div>
                     <button onclick="startGame()">Iniciar Juego</button>
-                    <p id="nivel">Nivel: 0</p>
-                    <p>Puntuación: <input type="text" id="puntuacion" value="0" readonly></p>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="practica.js"></script>
+        <div class="contenedor-secundario">
+            <div class="games">
+                <h1>Contraseña segura </h1>
+                <input type="password" id="passwordInput" placeholder="Ingresa tu contraseña">
+                <button onclick="checkPassword()">Verificar Contraseña</button>
+                <p id="passwordMessage"></p>
+            </div>
+            <div class="games">
+                <h1>Generador de Nombres de Usuario</h1>
+                <input type="text" id="firstName" placeholder="Nombre">
+                <input type="text" id="lastName" placeholder="Apellido">
+                <button onclick="generateUsername()">Generar Nombre de Usuario</button>
+                <p id="username"></p>
+            </div>
+        </div>
+        <script src="practica.js"></script>
 </body>
 
 </html>
