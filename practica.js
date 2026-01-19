@@ -188,7 +188,8 @@ function buyDoublePlugin() {
     if (clickCount >= multiplierCost) {
         clickCount -= multiplierCost; 
         clickValue *= 2;             
-        multiplierCost *= 2;         
+        multiplierCost *= 2; 
+                
 
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
         document.getElementById('multiplierStatus').innerText = 'Poder de Clic: x' + clickValue;
