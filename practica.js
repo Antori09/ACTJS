@@ -156,6 +156,8 @@ function calculateBMI() {
 }
 let clickCount = 0;
 let count = 0;
+let multiplierCost = 50;
+let clickValue = 1;
 
 function incrementClicks() {
     clickCount++;
@@ -172,7 +174,29 @@ function incrementClicks() {
         img.classList.remove('expanding');
     }, 100);
 }
+function incrementClicks() {
+    clickCount += clickValue;
 
+    document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
+
+    const img = document.getElementById('clickerImage');
+    img.classList.add('expanding');
+    setTimeout(() => img.classList.remove('expanding'), 100);
+}
+
+function buyDoublePlugin() {
+    if (clickCount >= multiplierCost) {
+        clickCount -= multiplierCost; 
+        clickValue *= 2;             
+        multiplierCost *= 3;         
+
+        document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
+        document.getElementById('multiplierStatus').innerText = 'Poder de Clic: x' + clickValue;
+        document.getElementById('btnMultiplier').innerText = 'Comprar X2 (Costo: ' + multiplierCost + ')';
+    } else {
+        alert("¡No tienes suficientes clics para este plugin!");
+    }
+}
 
 function resetClicks() {
     clickCount = 0;
