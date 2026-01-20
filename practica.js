@@ -45,6 +45,32 @@ function sumar() {
     resultadoPantalla.innerText = "El resultado es: " + suma;
 }
 
+function restar() {
+
+    let numero1 = Number(document.getElementById("num1").value);
+    let numero2 = Number(document.getElementById("num2").value);
+    let resultadoPantalla = document.getElementById("suma");
+
+    let resta = numero1 - numero2;
+    resultadoPantalla.innerText = "El resultado es: " + resta;
+}
+function multiplicar() {
+
+    let numero1 = Number(document.getElementById("num1").value);
+    let numero2 = Number(document.getElementById("num2").value);
+    let resultadoPantalla = document.getElementById("suma");
+    let multiplicacion = numero1 * numero2;
+    resultadoPantalla.innerText = "El resultado es: " + multiplicacion;
+}
+function dividir() {
+
+    let numero1 = Number(document.getElementById("num1").value);
+    let numero2 = Number(document.getElementById("num2").value);
+    let resultadoPantalla = document.getElementById("suma");
+    let division = numero1 / numero2;
+    resultadoPantalla.innerText = "El resultado es: " + division;
+}
+
 
 let gameSequence = [];
 let userSequence = [];
@@ -253,4 +279,4 @@ function checkPalindrome() {
     }
 }
 
-function
+
