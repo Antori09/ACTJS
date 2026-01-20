@@ -116,7 +116,9 @@ body {
     background-color: transparent;
     min-height: 5em;
 }
-
+.expanding {
+    transform: scale(1.2);
+}
 .games {
     background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(12px);
@@ -131,6 +133,7 @@ body {
 }
 
 img {
+    position: relative;
     max-width: 100%;
     height: auto;
     border-radius: 1em;

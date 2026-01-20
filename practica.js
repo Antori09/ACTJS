@@ -175,15 +175,6 @@ function incrementClicks() {
         img.classList.remove('expanding');
     }, 100);
 }
-function incrementClicks() {
-    clickCount += clickValue;
-
-    document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
-
-    const img = document.getElementById('clickerImage');
-    img.classList.add('expanding');
-    setTimeout(() => img.classList.remove('expanding'), 100);
-}
 
 function buyDoublePlugin() {
     if (clickCount >= multiplierCost) {
@@ -253,4 +244,3 @@ function checkPalindrome() {
         palindromeResult.style.color = "red";
     }
 }
-
