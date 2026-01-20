@@ -175,12 +175,21 @@ function incrementClicks() {
         img.classList.remove('expanding');
     }, 100);
 }
+function incrementClicks() {
+    clickCount += clickValue;
+
+    document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
+
+    const img = document.getElementById('clickerImage');
+    img.classList.add('expanding');
+    setTimeout(() => img.classList.remove('expanding'), 100);
+}
 
 function buyDoublePlugin() {
     if (clickCount >= multiplierCost) {
-        clickCount -= multiplierCost; 
-        clickValue *= 2;             
-        multiplierCost *= 2; 
+        clickCount -= multiplierCost;
+        clickValue *= 2;
+        multiplierCost *= 2;
 
 
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
@@ -195,13 +204,12 @@ function buyDoublePlugin() {
 function buyAutoClickerPlugin() {
     if (clickCount >= autoclickerCost) {
         clickCount -= autoclickerCost;
-        autoclickerCost *= 3;
-        
+        autoclickerCost *= 2;
+
         setInterval(incrementClicks, 1000);
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
         document.getElementById('autoClickerStatus').innerText = 'Autoclicker activado.';
         document.getElementById('btnAutoClicker').innerText = 'Comprar Autoclicker (Costo: ' + autoclickerCost + ')';
-        document.getElementById('btnAutoClicker').innerText = 'Mejorar Autoclicker (Costo: ' + autoclickerCost + ')';
         document.getElementById('autoClickerStatus').style.color = "limegreen";
 
     } else {
