@@ -244,3 +244,7 @@ function checkPalindrome() {
         palindromeResult.style.color = "red";
     }
 }
+
+
+
+
