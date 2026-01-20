@@ -1,13 +1,13 @@
 body {
     background-image: url('SRC/fondoweb.png');
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin: 0;
     font-family: Arial, sans-serif;
-    color: #2d3748;
-    min-height: 100vh;
+    color: #cfd0d1;
+    
     
 }
 
@@ -119,18 +119,14 @@ body {
 
 .games {
     background: rgba(255, 255, 255, 0.35);
-    /* Fondo semi-transparente */
     backdrop-filter: blur(12px);
-    /* El toque clave del cristal */
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    /* Borde de reflejo */
     border-radius: 2em;
     width: 25em;
     padding: 1.5em;
     text-align: center;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
-    /* Sombra suave azulada */
     transition: transform 0.3s ease;
 }
 
@@ -168,11 +164,13 @@ input {
     margin-right: auto;
     color: #2d3748;
 }
-
+a{
+    text-decoration: none;
+    color: inherit;
+}
 button {
     color: white;
     background-color: #00b894;
-    /* Verde menta vibrante */
     border-radius: 2rem;
     padding: 0.6em 1.2em;
     border: none;
