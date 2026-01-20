@@ -9,9 +9,14 @@
 
 <body>
     <header style="text-align: right;">
-        <h1 class = "titulo" oneclick = "location.reload()">Reto JS</h1>
-        <button class="identificador" onclick="">SING UP</button>
-        <button class="identificador" onclick="">LOGIN</button>
+        <div class="cabecera">
+            <h1 class = "titulo">Reto JS</h1>
+            <div class="opciones">
+                <button class="juegos" onclick="">JUEGOS</button>
+                <button  onclick="">SING UP</button>
+                <button  onclick="">LOGIN</button>
+            </div>
+        </div>
     </header>
     <div class="contenedor-principal">
         <button class="RELOAD" onclick= "location.reload()">RECARGAR DATOS</button>
@@ -61,11 +66,19 @@
                 <p id="bmiResult"></p>
             </div>
         </div>
-        <h2>Juegos</h2>
         <div class="contenedor-secundario">
             <div class="games">
+                <h1>Buscador de Palíndromos</h1>
+                <input type="text" id="palindromeInput" placeholder="Ingresa una palabra o frase">
+                <button onclick="checkPalindrome()">Verificar Palíndromo</button>
+                <p id="palindromeResult"></p>
+            </div>
+        </div>
+        <h2>Juegos</h2>
+        <div class="contenedor-secundario">
+            <div id="juego1" class="games">
                 <h1>DEV Clicker</h1>
-                <img src="SRC/Galleta.png" alt="Clicker" id="clickerImage" id="" onclick="incrementClicks()" >
+                <img src="SRC/Galleta.png" alt="Clicker" id="clickerImage"  onclick="incrementClicks()" >
                 <div class="shop">
                     <h3>Tienda de Plugins</h3>
                     <button id="btnMultiplier" onclick="buyDoublePlugin()">
@@ -81,7 +94,7 @@
                 <button class="resetB" onclick="resetClicks()">Reiniciar Clics</button>
 
             </div>
-            <div class="games">
+            <div id = "juego2" class="games">
                 <h1>Juego de memoria </h1>
                 <div id="simon-grid">
                     <div class="color-button red" id="red" onclick="userClick('red')"></div>
@@ -93,10 +106,12 @@
                 </div>
             </div>
         </div>
-
-
     </div>
         <script src="practica.js"></script>
+
+<footer>
+    <p> &copy; 2024 Reto JS. Todos los derechos reservados.</p>
+
 </body>
 
 </html>

@@ -238,3 +238,18 @@ function convertToFahrenheit() {
     fahrenheitOutput.innerText = `Temperatura en Fahrenheit: ${fahrenheit.toFixed(2)} °F`;
     fahrenheitOutput.style.color = "green";
 }
+
+function checkPalindrome() {
+    const inputString = document.getElementById('palindromeInput').value;   
+    const palindromeResult = document.getElementById('palindromeResult');
+    const cleanedString = inputString.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+    const reversedString = cleanedString.split('').reverse().join('');  
+    if (cleanedString === reversedString) {
+        palindromeResult.innerText = `"${inputString}" es un palíndromo.`;
+        palindromeResult.style.color = "green";
+    }
+    else {
+        palindromeResult.innerText = `"${inputString}" no es un palíndromo.`;
+        palindromeResult.style.color = "red";
+    }
+}

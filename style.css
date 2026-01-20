@@ -1,43 +1,88 @@
 body {
-    background-color: antiquewhite;
+    background-image: url('SRC/fondoweb.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     margin: 0;
     font-family: Arial, sans-serif;
-    color: #333;
-
-}
-header {
-    background-color: rgb(67, 65, 55);
-    padding:0.9em;
+    color: #2d3748;
+    min-height: 100vh;
     
 }
-.identificacaion{
+
+.contenedor-principal {
+    background-color: transparent !important;
+}
+
+.cabecera {
+    background-color: #ffffff;
+    display: flex;
+    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.opciones {
+    display: flex;
+    gap: 1em;
+    margin-right: 2em;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.identificacaion {
     top: 2em;
-        right: 2em;
-        background-color: rgb(14, 12, 13);
-        color: rgb(248, 247, 247);
-        border: none;
-        padding: 0.8em 1.2em;
-        border-radius: 0.5em;
-        cursor: pointer;
-        font-weight: bold;
-        z-index: 1000;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-        transition: transform 0.2s;
-        margin-right: 1em;
+    right: 2em;
+    background-color: #4a90e2;
+    /* Azul brillante amigable */
+    color: white;
+    border: none;
+    padding: 0.8em 1.2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin-right: 1em;
 }
 
 .identificacaion:hover {
-    background-color: rgb(127, 115, 115);
+    background-color: #357abd;
     transform: scale(1.1);
+}
 
+.juegos {
+    top: 6em;
+    right: 2em;
+    background-color: #6c5ce7;
+    /* Púrpura suave */
+    color: white;
+    border: none;
+    padding: 0.8em 1.2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin-right: 1em;
+}
+
+.juegos:hover {
+    background-color: #a29bfe;
+    transform: scale(1.1);
 }
 
 .RELOAD {
     position: fixed;
     bottom: 2em;
     right: 2em;
-    background-color: rgb(14, 12, 13);
-    color: rgb(248, 247, 247);
+    background-color: #2d3436;
+    color: #fab1a0;
+    /* Color melocotón para destacar */
     border: none;
     padding: 0.8em 1.2em;
     border-radius: 0.5em;
@@ -47,18 +92,20 @@ header {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
     margin-right: 1em;
-
 }
+
 .RELOAD:hover {
-    background-color: rgb(127, 115, 115);
+    background-color: #000000;
     transform: scale(1.1);
-
 }
+
 .contenedor-principal {
     grid-area: auto;
     grid-column: auto;
-    background-color: rgb(67, 65, 55);
+    background-color: #dfe6e9;
+    /* Gris azulado suave */
 }
+
 .contenedor-secundario {
     display: flex;
     flex-direction: row;
@@ -66,22 +113,25 @@ header {
     align-items: flex-start;
     gap: 1.25em;
     padding: 1.25em;
-    background-color: antiquewhite;
+    background-color: transparent;
     min-height: 5em;
 }
 
-
-
-.games{
-    background-color: burlywood;
-    width: 25em;
-    min-height: 12em;
-    border: 2px solid #333;
+.games {
+    background: rgba(255, 255, 255, 0.35);
+    /* Fondo semi-transparente */
+    backdrop-filter: blur(12px);
+    /* El toque clave del cristal */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    /* Borde de reflejo */
     border-radius: 2em;
-    text-align: center;
-    font-size: large;
+    width: 25em;
     padding: 1.5em;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    /* Sombra suave azulada */
+    transition: transform 0.3s ease;
 }
 
 img {
@@ -90,59 +140,61 @@ img {
     border-radius: 1em;
     margin-bottom: 1em;
 }
+
 h1 {
     font-size: 1.2em;
-    color: #e1e1e1;
+    color: #2d3748;
     margin-bottom: 1em;
     text-align: center;
     font-size: x-large;
-
 }
+
 .titulo {
     text-align: left;
-    color: white;
+    color: #4a90e2;
     margin-right: 2em;
     cursor: pointer;
 }
 
 input {
     border-radius: 1em;
-    border: 1px solid #ccc;
+    border: 2px solid #edf2f7;
+    background-color: #f7fafc;
     padding: 0.5em;
     margin-bottom: 0.5em;
     width: 80%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    color: #2d3748;
 }
 
-
-
 button {
-    color: black;
-    background-color: azure;
+    color: white;
+    background-color: #00b894;
+    /* Verde menta vibrante */
     border-radius: 2rem;
     padding: 0.6em 1.2em;
-    border: 1px solid #ccc;
+    border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: bold;
-
 }
+
 .red {
-    background-color: #ff4d4d;
+    background-color: #ff7675;
 }
 
 .green {
-    background-color: #2ecc71;
+    background-color: #55efc4;
 }
 
 .blue {
-    background-color: #3498db;
+    background-color: #74b9ff;
 }
 
 .yellow {
-    background-color: #f1c40f;
+    background-color: #ffeaa7;
 }
 
 #simon-grid {
@@ -151,22 +203,25 @@ button {
     gap: 10px;
     justify-content: center;
 }
+
 .color-button {
     border-radius: 10px;
-    border: 3px solid #333;
+    border: 2px solid #f1f2f6;
     cursor: pointer;
-    opacity: 0.6;
+    opacity: 0.8;
     transition: all 0.2s;
     padding: 2.6em;
 }
+
 .color-button.active {
     opacity: 1;
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgb(251, 251, 251);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
+
 .resetB {
     margin-top: 1em;
-    background-color: darkorange;
+    background-color: #ff7675;
     color: white;
     border: none;
     padding: 0.5em 1em;
@@ -175,18 +230,21 @@ button {
     font-weight: bold;
     transition: background-color 0.3s;
 }
+
 .resetB:hover {
-    background-color: orangered;
+    background-color: #d63031;
 }
+
 h2 {
     text-align: center;
-    color: #faf5f5;
+    color: #2d3748;
     margin-top: 1em;
     margin-bottom: 0.5em;
 }
+
 button:hover {
-    color: aliceblue;
-    background-color: black;
+    color: white;
+    background-color: #008970;
     transform: translateY(-2px);
 }
 
@@ -200,7 +258,13 @@ button:hover {
     user-select: none;
 }
 
-.expanding {
-    transform: scale(1.15);
-
+footer {
+    background-color: #2d3436;
+    color: #f7fafc;
+    text-align: center;
+    padding: 2em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 2em;
 }
