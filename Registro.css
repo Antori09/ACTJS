@@ -1,0 +1,115 @@
+/* --- Ajustes en Body para empujar el footer --- */
+html,
+body {
+    height: 100%;
+    /* Necesario para que el body ocupe toda la pantalla */
+}
+
+body {
+    background-image: url('SRC/fondoweb.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #cfd0d1;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Configuración Flexbox para el footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Contenedor de Login --- */
+.login-container {
+    width: 22em;
+    margin: auto;
+    /* Magia: Centra horizontal y verticalmente gracias al flex del body */
+    padding: 2.5em;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    /* Evita el colapso: aseguramos que no se encoja demasiado */
+    flex-shrink: 0;
+    margin-top: 5em;
+    /* Espacio mínimo superior */
+    margin-bottom: 5em;
+}
+
+/* --- Títulos, Labels e Inputs (Tu estilo original mantenido) --- */
+.login-container h2 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 1.5em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.login-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+    color: #f7fafc;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 0.8em 1em;
+    margin-bottom: 1.5em;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 1.5em;
+    color: #2d3436;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* --- Botón de Acción --- */
+.login-btn {
+    width: 100%;
+    background-color: #00b894;
+    color: white;
+    padding: 0.8em;
+    border: none;
+    border-radius: 1.5em;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+}
+
+.login-btn:hover {
+    background-color: #00d1a3;
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* --- Footer Ajustado (Abajo del todo) --- */
+footer {
+    background-color: #2d3436;
+    color: #f7fafc;
+    text-align: center;
+    padding: 2em;
+    width: 100%;
+    box-sizing: border-box;
+
+    /* El truco final: */
+    margin-top: auto;
+}

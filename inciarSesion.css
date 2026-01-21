@@ -1,0 +1,132 @@
+/* --- Mejora del Contenedor de Login (Efecto Cristal) --- */
+body {
+    background-image: url('SRC/fondoweb.png');
+    background-size: cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #cfd0d1;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.login-container {
+    width: 22em;
+    /* Un poco más ancho para legibilidad */
+    margin: 5em auto;
+    /* Centrado vertical con margen */
+    padding: 2.5em;
+    background: rgba(255, 255, 255, 0.2);
+    /* Transparencia similar a .games */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2em;
+    /* Bordes muy redondeados como tus botones */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* --- Títulos dentro del Login --- */
+.login-container h2 {
+    color: #ffffff;
+    /* Blanco para resaltar sobre el fondo */
+    font-size: 1.8em;
+    margin-bottom: 1.5em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Etiquetas (Labels) --- */
+.login-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+    color: #f7fafc;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+/* --- Inputs Estilizados (Consistentes con tu input general) --- */
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 0.8em 1em;
+    margin-bottom: 1.5em;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 1.5em;
+    /* Estilo píldora */
+    color: #2d3436;
+    font-size: 1em;
+    box-sizing: border-box;
+    /* Evita que el padding rompa el ancho */
+    transition: all 0.3s ease;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    /* Azul de tu clase .identificacion */
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.4);
+    background: #ffffff;
+}
+
+/* --- Botón de Acción Principal --- */
+.login-btn {
+    width: 100%;
+    background-color: #00b894;
+    /* Tu verde original */
+    color: white;
+    padding: 0.8em;
+    border: none;
+    border-radius: 1.5em;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+}
+
+.login-btn:hover {
+    background-color: #00d1a3;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+}
+
+/* --- Enlaces adicionales (¿Olvidaste tu contraseña?) --- */
+.login-footer {
+    margin-top: 1.5em;
+}
+
+.login-footer a {
+    font-size: 0.85em;
+    color: #dfe6e9;
+    transition: color 0.2s;
+}
+
+.login-footer a:hover {
+    color: #74b9ff;
+    /* Azul claro al pasar el mouse */
+    text-decoration: underline;
+}
+
+
+footer {
+    background-color: #2d3436;
+    color: #f7fafc;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 2em;
+}   
