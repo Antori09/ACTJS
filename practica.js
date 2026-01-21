@@ -230,7 +230,7 @@ function buyDoublePlugin() {
 function buyAutoClickerPlugin() {
     if (clickCount >= autoclickerCost) {
         clickCount -= autoclickerCost;
-        autoclickerCost *= 2;
+        autoclickerCost *= 3;
 
         setInterval(incrementClicks, 1000);
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
