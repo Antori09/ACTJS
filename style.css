@@ -1,14 +1,13 @@
 body {
     background-image: url('SRC/fondoweb.png');
-    background-size: cover;
-    /* background-position: center; */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #cfd0d1;
-    padding: 0;
-    box-sizing: border-box;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #cfd0d1;
+        padding: 0;
+        box-sizing: border-box;
     
     
 }
