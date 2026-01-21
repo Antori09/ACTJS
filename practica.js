@@ -279,4 +279,60 @@ function checkPalindrome() {
     }
 }
 
+function test () {
+    console.log("Funciona");
+}
+
+//Aqui se va a realzar una funcion que realiza un juego de preguntas de cultura general.
+let currentQuestionIndex = 0;
+let scoreQuiz = 0;
+const questions = [
+    {
+        question: "¿Cuál es la capital de Francia?",
+        options: ["París", "Londres", "Roma", "Berlín"],
+        correctAnswer: "París"
+    },
+    {
+        question: "¿En qué año se fundó la ciudad de Madrid?",
+        options: ["1548", "1561", "1570", "1580"],
+        correctAnswer: "1561"
+    },
+    {
+        question: "¿Cuál es el río más largo del mundo?",
+        options: ["Amazonas", "Nilo", "Misisipi", "Yangtsé"],
+        correctAnswer: "Amazonas"
+    }
+];
+function loadQuestion() {
+    const questionObj = questions[currentQuestionIndex];
+    document.getElementById('quizQuestion').innerText = questionObj.question;
+    const optionsContainer = document.getElementById('quizOptions');
+    optionsContainer.innerHTML = '';
+    questionObj.options.forEach(option => {
+        const button = document.createElement('button');
+        button.innerText = option;
+        button.onclick = () => checkAnswerQuiz(option);
+        optionsContainer.appendChild(button);
+    });
+}
+function checkAnswerQuiz(selectedOption) {
+    const questionObj = questions[currentQuestionIndex];
+    if (selectedOption === questionObj.correctAnswer) {
+        scoreQuiz++;
+    }
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+    } else {
+        showQuizResult();
+    }
+}
+function showQuizResult() {
+    document.getElementById('quizQuestion').innerText = `Has completado el quiz. Tu puntuación es ${scoreQuiz} de ${questions.length}.`;
+    document.getElementById('quizOptions').innerHTML = '';
+}
+window.onload = loadQuestion;
+//fin del juego de preguntas
+
+
 
