@@ -334,5 +334,9 @@ function showQuizResult() {
 window.onload = loadQuestion;
 //fin del juego de preguntas
 
+function rollDice() {
+    const diceResult = Math.floor(Math.random() * 6) + 1;
+    document.getElementById('diceResult').innerText = `Has sacado un ${diceResult}`;
+}
 
 
