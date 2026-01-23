@@ -352,5 +352,25 @@ function Num_dado() {
     }
 }
 
+// nigth mode
+ const toggleBtn = document.getElementById('dark-mode-toggle');
+ const body = document.body;
+
+ if(localStorage.getItem('then') === 'dark'){
+    body.classList.add('darkmode')
+    toggleBtn.textContent = 'Modo Oscuro';
+ }
+
+ toggleBtn.addEventListener('click', () =>{
+    body.classList.toggle('dark-mode');
+
+     if (body.classList.contains('dark-mode')) {
+         localStorage.setItem('theme', 'dark');
+         toggleBtn.textContent = 'Modo Oscuro';
+     } else {
+         localStorage.setItem('theme', 'light');
+         toggleBtn.textContent = 'Modo Claro';
+     }
+ });
 
 

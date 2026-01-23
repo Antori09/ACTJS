@@ -112,3 +112,96 @@ footer {
     /* El truco final: */
     margin-top: auto;
 }
+
+
+:root {
+    /* MODO CLARO */
+    --bg-color: #dfe6e9;
+    --cabecera-bg: #ffffff;
+    --texto-h1: #2d3748;
+    --texto-general: #cfd0d1;
+    --card-bg: rgba(255, 255, 255, 0.35);
+    --input-bg: #f7fafc;
+    --input-border: #edf2f7;
+    --footer-bg: #2d3436;
+}
+
+body.dark-mode {
+    /* MODO OSCURO */
+    --bg-color: #1a1a1b;
+    /* Gris muy oscuro */
+    --cabecera-bg: #2d3436;
+    --texto-h1: #f7fafc;
+    --texto-general: #b2bec3;
+    --card-bg: rgba(0, 0, 0, 0.6);
+    --input-bg: #2d3436;
+    --input-border: #4a5568;
+    --footer-bg: #000000;
+}
+
+body {
+    background-image: url('SRC/fondoweb.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--texto-general);
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+/* Oscurecer el fondo en modo oscuro si no cambias la imagen */
+body.dark-mode {
+    background-blend-mode: multiply;
+    background-color: #444;
+}
+
+.cabecera {
+    background-color: var(--cabecera-bg);
+    display: flex;
+    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.05);
+}
+
+.games {
+    background: var(--card-bg);
+    backdrop-filter: blur(0.75em);
+    /* 12px aprox */
+    -webkit-backdrop-filter: blur(0.75em);
+    border: 0.0625em solid rgba(255, 255, 255, 0.1);
+    border-radius: 2em;
+    width: 25em;
+    padding: 1.5em;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: var(--texto-h1);
+    margin-bottom: 1em;
+}
+
+input {
+    border-radius: 1em;
+    border: 0.125em solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--texto-h1);
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    width: 80%;
+    display: block;
+    margin-inline: auto;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: #f7fafc;
+    padding: 2em;
+    width: 100%;
+    margin-top: 2em;
+}
