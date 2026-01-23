@@ -334,9 +334,23 @@ function showQuizResult() {
 window.onload = loadQuestion;
 //fin del juego de preguntas
 
-function rollDice() {
-    const diceResult = Math.floor(Math.random() * 6) + 1;
-    document.getElementById('diceResult').innerText = `Has sacado un ${diceResult}`;
+var cara = new Array(
+    new Array("SRC/1Dado.png", 1),
+    new Array("SRC/2Dado.png", 2),
+    new Array("SRC/3Dado.png", 3),
+    new Array("SRC/4Dado.png", 4),
+    new Array("SRC/5Dado.png", 5),
+    new Array("SRC/6Dado.png", 6)
+);
+
+function Num_dado() {
+    if (cara.length > 0) {
+        var random = Math.floor(Math.random() * cara.length);
+        var card = cara[random];
+        document.getElementById("diceResult").innerHTML = "<img src='" + card[0] + "' alt='Carta' width='100' height='150'><br>Número: " + card[1];
+        cara.splice(random, 1);
+    }
 }
+
 
 
