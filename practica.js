@@ -373,5 +373,59 @@ function Num_dado() {
      }
  });
 
- 
- 
+// 1. Definimos las reglas
+const REGLAS = [
+    {
+        id: 1,
+        mensaje: "La contraseña debe tener al menos 5 caracteres.",
+        validar: (pass) => pass.length >= 5
+    },
+    {
+        id: 2,
+        mensaje: "Debe incluir al menos un número.",
+        validar: (pass) => /\d/.test(pass)
+    },
+    {
+        id: 3,
+        mensaje: "Debe incluir una mayúscula.",
+        validar: (pass) => /[A-Z]/.test(pass)
+    },
+    {
+        id: 4,
+        mensaje: "Los numeros deben sumar 10.",
+        validar: (pass) => {
+        
+            const numeros = pass.match(/\d/g);
+
+            if(!numeros) return false;
+
+            const suma = numeros.reduce((acumulado, actual) => {
+                return acumulado + numer(actual);
+            }, 0)
+            return suma === 10;
+        }
+    }
+];
+
+// 2. Función principal//
+function comprobar() {
+const pass = document.getElementById('password').value;
+    const contenedorReglas = document.getElementById('errores');
+
+// Limpiamos el contenedor antes de re-comprobar
+contenedorReglas.innerHTML = "";
+
+for (let regla of REGLAS) {
+const esValida = regla.validar(pass);
+
+// Creamos el elemento visual para la regla
+const div = document.createElement('div');
+div.className = esValida ? "regla-valida" : "regla-error";
+div.innerText = (esValida ? "✅ " : "❌ ") + regla.mensaje;
+
+contenedorReglas.appendChild(div);
+
+// Lógica del juego: Si una regla falla, dejamos de mostrar las siguientes
+if (!esValida) break;
+}
+}
