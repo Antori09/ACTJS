@@ -358,7 +358,7 @@ function Num_dado() {
 
  if(localStorage.getItem('then') === 'dark'){
     body.classList.add('darkmode')
-    toggleBtn.textContent = 'Modo Oscuro';
+    toggleBtn.textContent = 'Modo Claro';
  }
 
  toggleBtn.addEventListener('click', () =>{
@@ -366,11 +366,12 @@ function Num_dado() {
 
      if (body.classList.contains('dark-mode')) {
          localStorage.setItem('theme', 'dark');
-         toggleBtn.textContent = 'Modo Oscuro';
+         toggleBtn.textContent = 'Modo Claro';
      } else {
          localStorage.setItem('theme', 'light');
-         toggleBtn.textContent = 'Modo Claro';
+         toggleBtn.textContent = 'Modo Oscuro';
      }
  });
 
-
+ 
+ 

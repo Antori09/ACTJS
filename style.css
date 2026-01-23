@@ -36,7 +36,7 @@ body {
 .identificacaion {
     top: 2em;
     right: 2em;
-    background-color: #4a90e2;
+    background-color: #101111;
     /* Azul brillante amigable */
     color: white;
     border: none;
@@ -51,7 +51,7 @@ body {
 }
 
 .identificacaion:hover {
-    background-color: #357abd;
+    background-color: #45494e;
     transform: scale(1.1);
 }
 
@@ -342,7 +342,6 @@ body.dark-mode {
 .games {
     background: var(--card-bg);
     backdrop-filter: blur(0.75em);
-    /* 12px aprox */
     -webkit-backdrop-filter: blur(0.75em);
     border: 0.0625em solid rgba(255, 255, 255, 0.1);
     border-radius: 2em;
@@ -377,3 +376,6 @@ footer {
     width: 100%;
     margin-top: 2em;
 }
+
+
+
