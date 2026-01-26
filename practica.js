@@ -344,6 +344,7 @@ var cara = new Array(
 );
 
 function Num_dado() {
+
     if (cara.length > 0) {
         var random = Math.floor(Math.random() * cara.length);
         var card = cara[random];
