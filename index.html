@@ -1,144 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="SRC/Corazon.jpg">
-    <title> Reto JS</title>
+    <title>Reto JS - Gaming Hub</title>
 </head>
 
 <body>
-    <header style="text-align: right;">
+    <header>
         <div class="cabecera">
-            <h1 class = "titulo">Reto JS</h1>
-            <div class="opciones">
-                <button><a href="#Juegos">Juegos</a></button>
-                <button><a href="registro.html">Registrarse</a></button>
-                <button><a href="iniciarSesion.html">iniciarSesion</a></button>
-                <button id="dark-mode-toggle" class="identificacaion">Modo Oscuro</button>
-            </div>
+            <h1 class="titulo">🎮 Reto JS</h1>
+            <nav class="opciones">
+                <button class="nav-btn"><a href="#Juegos">Juegos</a></button>
+                <button class="nav-btn"><a href="registro.html">Registrarse</a></button>
+                <button class="nav-btn"><a href="iniciarSesion.html">Iniciar Sesión</a></button>
+                <button id="dark-mode-toggle" class="identificacion">🌙 Modo Oscuro</button>
+            </nav>
         </div>
     </header>
+
     <div class="contenedor-principal">
-        <button class="RELOAD" onclick= "location.reload()">RECARGAR DATOS</button>
+        <button class="RELOAD" onclick="location.reload()">🔄 RECARGAR</button>
+
+        <h2 class="section-title">⚡ Mini Juegos</h2>
+
         <div class="contenedor-secundario">
             <div class="games">
-                <h1>Adivina el número (1 al 10)</h1>
+                <h1>🎯 Adivina el número</h1>
+                <p class="game-subtitle">1 al 10</p>
                 <input type="number" id="entradaUsuario" placeholder="Pon un número">
                 <button onclick="comprobar()">¡Probar suerte!</button>
-                <p id="mensaje"></p>
+                <p id="mensaje" class="result-message"></p>
                 <p id="intentos"></p>
             </div>
 
             <div class="games">
-                <h1>Suma estos dos numero</h1>
-                <input type="number" id="num1" placeholder="Pon el primer numero">
-                <input type="number" id="num2" placeholder="Pon el segundo numero">
+                <h1>🧮 Calculadora</h1>
+                <p class="game-subtitle">Opera con dos números</p>
+                <input type="number" id="num1" placeholder="Primer número">
+                <input type="number" id="num2" placeholder="Segundo número">
                 <div class="Calculadora">
-                    <button onclick="sumar()">+</button>
-                    <button onclick="restar()">-</button>
-                    <button onclick="dividir()">/</button>
-                    <button onclick="multiplicar()">*</button>
+                    <button onclick="sumar()" class="calc-btn">+</button>
+                    <button onclick="restar()" class="calc-btn">-</button>
+                    <button onclick="dividir()" class="calc-btn">/</button>
+                    <button onclick="multiplicar()" class="calc-btn">×</button>
                 </div>
-
-                <p id="suma"></p>
+                <p id="suma" class="result-message"></p>
             </div>
+
             <div class="games">
-                <h1>Convertidor de Temperatura</h1>
+                <h1>🌡️ Convertidor de Temperatura</h1>
+                <p class="game-subtitle">Celsius a Fahrenheit</p>
                 <input type="number" id="celsiusInput" placeholder="Temperatura en Celsius">
-                <button onclick="convertToFahrenheit()">Convertir a Fahrenheit</button>
-                <p id="fahrenheitOutput"></p>
+                <button onclick="convertToFahrenheit()">Convertir</button>
+                <p id="fahrenheitOutput" class="result-message"></p>
             </div>
-
         </div>
+
         <div class="contenedor-secundario">
             <div class="games">
-                <h1>Contraseña segura </h1>
+                <h1>🔒 Contraseña Segura</h1>
+                <p class="game-subtitle">Verifica tu contraseña</p>
                 <input type="password" id="passwordInput" placeholder="Ingresa tu contraseña">
-                <button onclick="checkPassword()">Verificar Contraseña</button>
-                <p id="passwordMessage"></p>
+                <button onclick="checkPassword()">Verificar</button>
+                <p id="passwordMessage" class="result-message"></p>
             </div>
+
             <div class="games">
-                <h1>Generador de Nombres de Usuario</h1>
+                <h1>👤 Generador de Usuario</h1>
+                <p class="game-subtitle">Crea tu nickname</p>
                 <input type="text" id="firstName" placeholder="Nombre">
                 <input type="text" id="lastName" placeholder="Apellido">
-                <button onclick="generateUsername()">Generar Nombre de Usuario</button>
-                <p id="username"></p>
+                <button onclick="generateUsername()">Generar</button>
+                <p id="username" class="result-message"></p>
             </div>
+
             <div class="games">
-                <h1>Calculadora de IMC</h1>
+                <h1>⚖️ Calculadora de IMC</h1>
+                <p class="game-subtitle">Índice de Masa Corporal</p>
                 <input type="number" id="weight" placeholder="Peso en kg">
                 <input type="number" id="height" placeholder="Altura en metros">
                 <button onclick="calculateBMI()">Calcular IMC</button>
-                <p id="bmiResult"></p>
+                <p id="bmiResult" class="result-message"></p>
             </div>
         </div>
-        <div class="contenedor-secundario">
-            <div class="games">
-                <h1>Buscador de Palíndromos</h1>
-                <input type="text" id="palindromeInput" placeholder="Ingresa una palabra o frase">
-                <button onclick="checkPalindrome()">Verificar Palíndromo</button>
-                <p id="palindromeResult"></p>
-            </div>
-            <div class="games">
-                <h1>Juego de preguntas</h1>
-                <div id="quizQuestion"></div>
-                <div id="quizOptions"></div>
-                <button id="nextQuestionBtn" onclick="nextQuestion()" style="display:none;">Siguiente Pregunta</button>
-                <p id="quizResult"></p>
-            </div>
-            <div class="games">
-                <h1>Dado de la suerte</h1>
-                <button  id="lanzador"onclick="Num_dado()">Lanzar Dado</button>
-                <p id="diceResult"></p>
-            </div>
-        </div>
-        <h2 id="Juegos">Juegos</h2>
-        <div class="contenedor-secundario">
-            <div id="juego1" class="games">
-                <h1>DEV Clicker</h1>
-                <img src="SRC/Galleta (2).png" alt="Clicker" id="clickerImage" id="" onclick="incrementClicks()">
-                <div class="shop">
-                    <h3>Tienda de Plugins</h3>
-                    <button id="btnMultiplier" onclick="buyDoublePlugin()">
-                        <p onselect="clickCount()"> Doble Clics (Costo: 50 clics)</p>
-                    </button>
-                    <button id="btnAutoClicker" onclick="buyAutoClickerPlugin()">
-                        <p onselect="clickCount()"> Autoclicker (Costo: 200 clics)</p>
-                    </button>
-                    <p id="multiplierStatus"></p>
-                    <p id="autoClickerStatus"></p>
-                </div>
-                <p id="clickCount">Clics: 0</p>
-                <button class="resetB" onclick="resetClicks()">Reiniciar Clics</button>
 
+        <div class="contenedor-secundario">
+            <div class="games">
+                <h1>🔄 Palíndromos</h1>
+                <p class="game-subtitle">¿Es igual al revés?</p>
+                <input type="text" id="palindromeInput" placeholder="Ingresa una palabra o frase">
+                <button onclick="checkPalindrome()">Verificar</button>
+                <p id="palindromeResult" class="result-message"></p>
             </div>
-            <div id = "juego2" class="games">
-                <h1>Juego de memoria </h1>
+
+            <div class="games">
+                <h1>❓ Quiz de Cultura General</h1>
+                <p class="game-subtitle">Pon a prueba tus conocimientos</p>
+                <div id="quizQuestion" class="quiz-question"></div>
+                <div id="quizOptions" class="quiz-options"></div>
+                <button id="nextQuestionBtn" onclick="nextQuestion()" style="display:none;">Siguiente</button>
+                <p id="quizResult" class="result-message"></p>
+            </div>
+
+            <div class="games">
+                <h1>🎲 Dado de la Suerte</h1>
+                <p class="game-subtitle">Lanza y gana</p>
+                <button id="lanzador" onclick="Num_dado()">Lanzar Dado</button>
+                <p id="diceResult" class="dice-result"></p>
+            </div>
+        </div>
+
+        <h2 id="Juegos" class="section-title">🎮 Juegos Principales</h2>
+
+        <div class="contenedor-secundario">
+            <div id="juego1" class="games game-featured">
+                <h1>🍪 DEV Clicker</h1>
+                <p class="game-subtitle">¡Haz clic sin parar!</p>
+                <img src="SRC/Galleta (2).png" alt="Clicker" id="clickerImage" onclick="incrementClicks()">
+                <div class="shop">
+                    <h3>🛒 Tienda de Plugins</h3>
+                    <button id="btnMultiplier" onclick="buyDoublePlugin()" class="shop-btn">
+                        <p>⚡ Doble Clics<br><span class="cost">Costo: 50 clics</span></p>
+                    </button>
+                    <button id="btnAutoClicker" onclick="buyAutoClickerPlugin()" class="shop-btn">
+                        <p>🤖 Autoclicker<br><span class="cost">Costo: 200 clics</span></p>
+                    </button>
+                    <p id="multiplierStatus" class="status-message"></p>
+                    <p id="autoClickerStatus" class="status-message"></p>
+                </div>
+                <p id="clickCount" class="score-display">Clics: 0</p>
+                <button class="resetB" onclick="resetClicks()">🔄 Reiniciar</button>
+            </div>
+
+            <div id="juego2" class="games game-featured">
+                <h1>🧠 Juego de Memoria</h1>
+                <p class="game-subtitle">Simón dice...</p>
                 <div id="simon-grid">
                     <div class="color-button red" id="red" onclick="userClick('red')"></div>
                     <div class="color-button green" id="green" onclick="userClick('green')"></div>
                     <div class="color-button blue" id="blue" onclick="userClick('blue')"></div>
                     <div class="color-button yellow" id="yellow" onclick="userClick('yellow')"></div>
-                    <div id="score">Puntuacion 0</div>
-                    <button onclick="startGame()">Iniciar Juego</button>
                 </div>
+                <div id="score" class="score-display">Puntuación: 0</div>
+                <button onclick="startGame()">Iniciar Juego</button>
             </div>
-            <div id="juego2" class="games">
-                <h1>PassWordGame </h1>
-                <input id="password" type="text" placeholder="Prueba tu contraseña">
-                <button onclick="comprobar()">Comprobar</button>
-                <p id = "errores"></p>
+        </div>
+        <div class="contenedor-secundario">
+            <div id="juego3" class="games game-featured">
+                <h1>🔢 Sudoku</h1>
+                <p class="game-subtitle">Completa el tablero</p>
+                <div id="grid" class="sudoku-grid"></div>
+                <button onclick="checkResult()" class="sudoku-check">Comprobar</button>
             </div>
         </div>
     </div>
-        <script src="practica.js"></script>
 
-<footer>
-    <p> &copy; 2024 Reto JS. Todos los derechos reservados- Andrés_Torilo_Cordón.</p>
+    <script src="practica.js"></script>
 
+    <footer>
+        <p>© 2026 Reto JS. Todos los derechos reservados - Andrés_Torilo_Cordón</p>
+    </footer>
 </body>
 
 </html>
-
-

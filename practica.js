@@ -1,4 +1,4 @@
-
+// JUEGO DE ADIVINAR NÚMERO
 let numeroSecreto = Math.floor(Math.random() * 10) + 1;
 let intentos = 10;
 let intentosusados = 1;
@@ -8,70 +8,74 @@ function comprobar() {
     let mensaje = document.getElementById("mensaje");
 
     if (intentos > 0) {
-
         if (datoUsuario == numeroSecreto) {
-            mensaje.innerText = "¡Felicidades! Has acertado. Solo neceseitaste: " + intentosusados + " Intentos";
-            mensaje.style.color = "green";
+            mensaje.innerText = "🎉 ¡Felicidades! Has acertado. Solo necesitaste: " + intentosusados + " Intentos";
+            mensaje.style.color = "#48bb78";
         } else {
             intentos = intentos - 1;
             intentosusados = intentosusados + 1;
 
             if (intentos === 0) {
-                mensaje.innerText = "Game Over. El número era " + numeroSecreto;
-                mensaje.style.color = "black";
+                mensaje.innerText = "😔 Game Over. El número era " + numeroSecreto;
+                mensaje.style.color = "#f56565";
             } else if (datoUsuario > numeroSecreto) {
-                mensaje.innerText = "Muy alto. Te quedan " + intentos + " intentos.";
-                mensaje.style.color = "red";
+                mensaje.innerText = "⬇️ Muy alto. Te quedan " + intentos + " intentos.";
+                mensaje.style.color = "#ed8936";
             } else {
-                mensaje.innerText = "Muy bajo. Te quedan " + intentos + " intentos.";
-                mensaje.style.color = "red";
+                mensaje.innerText = "⬆️ Muy bajo. Te quedan " + intentos + " intentos.";
+                mensaje.style.color = "#ed8936";
             }
         }
-
     } else {
         mensaje.innerText = "Ya no te quedan intentos. Recarga para jugar otra vez.";
     }
 }
 
+// CALCULADORA
 function sumar() {
-
     let numero1 = Number(document.getElementById("num1").value);
     let numero2 = Number(document.getElementById("num2").value);
-
     let resultadoPantalla = document.getElementById("suma");
-
     let suma = numero1 + numero2;
-
-    resultadoPantalla.innerText = "El resultado es: " + suma;
+    resultadoPantalla.innerText = "✅ El resultado es: " + suma;
+    resultadoPantalla.style.color = "#48bb78";
 }
 
 function restar() {
-
     let numero1 = Number(document.getElementById("num1").value);
     let numero2 = Number(document.getElementById("num2").value);
     let resultadoPantalla = document.getElementById("suma");
-
     let resta = numero1 - numero2;
-    resultadoPantalla.innerText = "El resultado es: " + resta;
+    resultadoPantalla.innerText = "✅ El resultado es: " + resta;
+    resultadoPantalla.style.color = "#48bb78";
 }
-function multiplicar() {
 
+function multiplicar() {
     let numero1 = Number(document.getElementById("num1").value);
     let numero2 = Number(document.getElementById("num2").value);
     let resultadoPantalla = document.getElementById("suma");
     let multiplicacion = numero1 * numero2;
-    resultadoPantalla.innerText = "El resultado es: " + multiplicacion;
+    resultadoPantalla.innerText = "✅ El resultado es: " + multiplicacion;
+    resultadoPantalla.style.color = "#48bb78";
 }
-function dividir() {
 
+function dividir() {
     let numero1 = Number(document.getElementById("num1").value);
     let numero2 = Number(document.getElementById("num2").value);
     let resultadoPantalla = document.getElementById("suma");
+
+    if (numero2 === 0) {
+        resultadoPantalla.innerText = "❌ No se puede dividir por cero";
+        resultadoPantalla.style.color = "#f56565";
+        return;
+    }
+
     let division = numero1 / numero2;
-    resultadoPantalla.innerText = "El resultado es: " + division;
+    resultadoPantalla.innerText = "✅ El resultado es: " + division.toFixed(2);
+    resultadoPantalla.style.color = "#48bb78";
 }
 
-
+// JUEGO DE MEMORIA (SIMON)
 let gameSequence = [];
 let userSequence = [];
 let level = 0;
@@ -82,6 +86,8 @@ function startGame() {
     gameSequence = [];
     userSequence = [];
     level = 0;
+    score = 0;
+    document.getElementById('score').innerText = 'Puntuación: 0';
     nextStep();
 }
 
@@ -89,12 +95,22 @@ function nextStep() {
     userSequence = [];
     level++;
     score = (level - 1) * 10;
-    document.getElementById('score').innerText = 'Puntuacion ' + score;
+    document.getElementById('score').innerText = 'Puntuación: ' + score;
     const randomColor = colors[Math.floor(Math.random() * 4)];
     gameSequence.push(randomColor);
+    playSequence();
+}
 
-
-    flashButton(randomColor);
+function playSequence() {
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < gameSequence.length) {
+            flashButton(gameSequence[i]);
+            i++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 600);
 }
 
 function flashButton(color) {
@@ -108,7 +124,6 @@ function flashButton(color) {
 function userClick(color) {
     userSequence.push(color);
     flashButton(color);
-
     checkAnswer(userSequence.length - 1);
 }
 
@@ -118,10 +133,12 @@ function checkAnswer(currentIndex) {
             setTimeout(nextStep, 1000);
         }
     } else {
-        alert("¡Perdiste! Inténtalo de nuevo");
+        alert("¡Perdiste! Tu puntuación final: " + score);
         startGame();
     }
 }
+
+// VERIFICADOR DE CONTRASEÑA
 function checkPassword() {
     const passwordInput = document.getElementById('passwordInput').value;
     const passwordMessage = document.getElementById('passwordMessage');
@@ -131,79 +148,78 @@ function checkPassword() {
     const hasLowerCase = /[a-z]/.test(passwordInput);
     const hasNumber = /[0-9]/.test(passwordInput);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(passwordInput);
+
     if (passwordInput.length >= minLength && hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar) {
-        passwordMessage.innerText = "Contraseña segura";
-        passwordMessage.style.color = "green";
-    }
-    else {
-        passwordMessage.innerText = "Contraseña insegura. Debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.";
-        passwordMessage.style.color = "red";
+        passwordMessage.innerText = "🔒 Contraseña segura";
+        passwordMessage.style.color = "#48bb78";
+    } else {
+        passwordMessage.innerText = "⚠️ Contraseña insegura. Debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.";
+        passwordMessage.style.color = "#f56565";
     }
 }
+
+// GENERADOR DE NOMBRE DE USUARIO
 function generateUsername() {
     const firstName = document.getElementById('firstName').value.trim();
     const lastName = document.getElementById('lastName').value.trim();
     const usernameDisplay = document.getElementById('username');
 
     if (firstName === '' || lastName === '') {
-        usernameDisplay.innerText = "Por favor, ingresa tanto el nombre como el apellido.";
-        usernameDisplay.style.color = "red";
+        usernameDisplay.innerText = "⚠️ Por favor, ingresa tanto el nombre como el apellido.";
+        usernameDisplay.style.color = "#f56565";
         return;
     }
 
     const randomNum = Math.floor(Math.random() * 1000);
     const username = `${firstName.toLowerCase()}.${lastName.toLowerCase()}${randomNum}`;
 
-    usernameDisplay.innerText = `Nombre de usuario generado: ${username}`;
-    usernameDisplay.style.color = "green";
+    usernameDisplay.innerText = `✅ Nombre de usuario generado: ${username}`;
+    usernameDisplay.style.color = "#48bb78";
 }
+
+// CALCULADORA DE IMC
 function calculateBMI() {
     const weight = parseFloat(document.getElementById('weight').value);
     const height = parseFloat(document.getElementById('height').value);
     const bmiResult = document.getElementById('bmiResult');
+
     if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
-        bmiResult.innerText = "Por favor, ingresa valores válidos para peso y altura.";
-        bmiResult.style.color = "red";
+        bmiResult.innerText = "⚠️ Por favor, ingresa valores válidos para peso y altura.";
+        bmiResult.style.color = "#f56565";
         return;
     }
+
     const bmi = weight / (height * height);
     let category = "";
+    let emoji = "";
+
     if (bmi < 18.5) {
         category = "Bajo peso";
+        emoji = "📉";
     } else if (bmi < 24.9) {
         category = "Peso normal";
+        emoji = "✅";
     } else if (bmi < 29.9) {
         category = "Sobrepeso";
+        emoji = "⚠️";
     } else {
         category = "Obesidad";
-    }   
-    bmiResult.innerText = `Tu IMC es ${bmi.toFixed(2)} (${category})`;
-    bmiResult.style.color = "green";
+        emoji = "🔴";
+    }
+
+    bmiResult.innerText = `${emoji} Tu IMC es ${bmi.toFixed(2)} (${category})`;
+    bmiResult.style.color = "#48bb78";
 }
+
+// DEV CLICKER
 let clickCount = 0;
-let count = 0;
+let clickValue = 1;
 let multiplierCost = 50;
 let autoclickerCost = 200;
-let clickValue = 1;
+let hasAutoClicker = false;
 
-function incrementClicks() {
-    clickCount++;
-    document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
-
-    if (clickCount % 10 === 0) {
-        count++;
-        const milestone = document.getElementById('milestoneCount');
-        if (milestone) milestone.innerText = 'Hitos alcanzados: ' + count;
-    }
-    const img = document.getElementById('clickerImage');
-    img.classList.add('expanding');
-    setTimeout(() => {
-        img.classList.remove('expanding');
-    }, 100);
-}
 function incrementClicks() {
     clickCount += clickValue;
-
     document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
 
     const img = document.getElementById('clickerImage');
@@ -217,73 +233,91 @@ function buyDoublePlugin() {
         clickValue *= 2;
         multiplierCost *= 2;
 
-
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
-        document.getElementById('multiplierStatus').innerText = 'Poder de Clic: x' + clickValue;
-        document.getElementById('btnMultiplier').innerText = 'Comprar X2 (Costo: ' + multiplierCost + ')';
+        document.getElementById('multiplierStatus').innerText = '⚡ Poder de Clic: x' + clickValue;
+        document.getElementById('btnMultiplier').innerHTML = '<p>⚡ Doble Clics<br><span class="cost">Costo: ' + multiplierCost + ' clics</span></p>';
+        document.getElementById('multiplierStatus').style.color = "#48bb78";
     } else {
-        document.getElementById('multiplierStatus').innerText = 'No tienes suficientes clics para comprar el poder X2.';
-        document.getElementById('multiplierStatus').style.color = "red";
+        document.getElementById('multiplierStatus').innerText = '❌ No tienes suficientes clics para comprar el poder X2.';
+        document.getElementById('multiplierStatus').style.color = "#f56565";
     }
 }
 
 function buyAutoClickerPlugin() {
-    if (clickCount >= autoclickerCost) {
+    if (clickCount >= autoclickerCost && !hasAutoClicker) {
         clickCount -= autoclickerCost;
-        autoclickerCost *= 3;
+        hasAutoClicker = true;
 
         setInterval(incrementClicks, 1000);
         document.getElementById('clickCount').innerText = 'Clics: ' + clickCount;
-        document.getElementById('autoClickerStatus').innerText = 'Autoclicker activado.';
-        document.getElementById('btnAutoClicker').innerText = 'Comprar Autoclicker (Costo: ' + autoclickerCost + ')';
-        document.getElementById('autoClickerStatus').style.color = "limegreen";
-
+        document.getElementById('autoClickerStatus').innerText = '🤖 Autoclicker activado';
+        document.getElementById('btnAutoClicker').disabled = true;
+        document.getElementById('btnAutoClicker').style.opacity = '0.5';
+        document.getElementById('autoClickerStatus').style.color = "#48bb78";
+    } else if (hasAutoClicker) {
+        document.getElementById('autoClickerStatus').innerText = '✅ Ya tienes el autoclicker activo';
+        document.getElementById('autoClickerStatus').style.color = "#48bb78";
     } else {
-        document.getElementById('autoClickerStatus').innerText = 'No tienes suficientes clics para comprar el autoclicker.';
-        document.getElementById('autoClickerStatus').style.color = "red";
+        document.getElementById('autoClickerStatus').innerText = '❌ No tienes suficientes clics para comprar el autoclicker.';
+        document.getElementById('autoClickerStatus').style.color = "#f56565";
     }
 }
 
-
 function resetClicks() {
     clickCount = 0;
+    clickValue = 1;
+    multiplierCost = 50;
+    autoclickerCost = 200;
+    hasAutoClicker = false;
+
     document.getElementById('clickCount').innerText = 'Clics: 0';
+    document.getElementById('multiplierStatus').innerText = '';
+    document.getElementById('autoClickerStatus').innerText = '';
+    document.getElementById('btnMultiplier').innerHTML = '<p>⚡ Doble Clics<br><span class="cost">Costo: 50 clics</span></p>';
+    document.getElementById('btnAutoClicker').innerHTML = '<p>🤖 Autoclicker<br><span class="cost">Costo: 200 clics</span></p>';
+    document.getElementById('btnAutoClicker').disabled = false;
+    document.getElementById('btnAutoClicker').style.opacity = '1';
+
+    location.reload();
 }
 
+// CONVERTIDOR DE TEMPERATURA
 function convertToFahrenheit() {
     const celsiusInput = document.getElementById('celsiusInput').value;
     const fahrenheitOutput = document.getElementById('fahrenheitOutput');
     const celsius = parseFloat(celsiusInput);
+
     if (isNaN(celsius)) {
-        fahrenheitOutput.innerText = "Por favor, ingresa un valor numérico válido.";
-        fahrenheitOutput.style.color = "red";
+        fahrenheitOutput.innerText = "⚠️ Por favor, ingresa un valor numérico válido.";
+        fahrenheitOutput.style.color = "#f56565";
         return;
     }
-    const fahrenheit = (celsius * 9/5) + 32;
-    fahrenheitOutput.innerText = `Temperatura en Fahrenheit: ${fahrenheit.toFixed(2)} °F`;
-    fahrenheitOutput.style.color = "green";
+
+    const fahrenheit = (celsius * 9 / 5) + 32;
+    fahrenheitOutput.innerText = `🌡️ Temperatura en Fahrenheit: ${fahrenheit.toFixed(2)} °F`;
+    fahrenheitOutput.style.color = "#48bb78";
 }
 
+// VERIFICADOR DE PALÍNDROMOS
 function checkPalindrome() {
-    const inputString = document.getElementById('palindromeInput').value;   
+    const inputString = document.getElementById('palindromeInput').value;
     const palindromeResult = document.getElementById('palindromeResult');
     const cleanedString = inputString.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
-    const reversedString = cleanedString.split('').reverse().join('');  
-    if (cleanedString === reversedString) {
-        palindromeResult.innerText = `"${inputString}" es un palíndromo.`;
-        palindromeResult.style.color = "green";
-    }
-    else {
-        palindromeResult.innerText = `"${inputString}" no es un palíndromo.`;
-        palindromeResult.style.color = "red";
+    const reversedString = cleanedString.split('').reverse().join('');
+
+    if (cleanedString === reversedString && cleanedString.length > 0) {
+        palindromeResult.innerText = `✅ "${inputString}" es un palíndromo.`;
+        palindromeResult.style.color = "#48bb78";
+    } else if (cleanedString.length === 0) {
+        palindromeResult.innerText = "⚠️ Por favor, ingresa una palabra o frase.";
+        palindromeResult.style.color = "#f56565";
+    } else {
+        palindromeResult.innerText = `❌ "${inputString}" no es un palíndromo.`;
+        palindromeResult.style.color = "#f56565";
     }
 }
 
-function test () {
-    console.log("Funciona");
-}
-
-//Aqui se va a realzar una funcion que realiza un juego de preguntas de cultura general.
+// JUEGO DE PREGUNTAS
 let currentQuestionIndex = 0;
 let scoreQuiz = 0;
 const questions = [
@@ -301,134 +335,212 @@ const questions = [
         question: "¿Cuál es el río más largo del mundo?",
         options: ["Amazonas", "Nilo", "Misisipi", "Yangtsé"],
         correctAnswer: "Amazonas"
+    },
+    {
+        question: "¿Quién pintó la Mona Lisa?",
+        options: ["Leonardo da Vinci", "Miguel Ángel", "Rafael", "Donatello"],
+        correctAnswer: "Leonardo da Vinci"
+    },
+    {
+        question: "¿Cuál es el planeta más grande del sistema solar?",
+        options: ["Júpiter", "Saturno", "Neptuno", "Urano"],
+        correctAnswer: "Júpiter"
     }
 ];
+
 function loadQuestion() {
-    const questionObj = questions[currentQuestionIndex];
-    document.getElementById('quizQuestion').innerText = questionObj.question;
-    const optionsContainer = document.getElementById('quizOptions');
-    optionsContainer.innerHTML = '';
-    questionObj.options.forEach(option => {
-        const button = document.createElement('button');
-        button.innerText = option;
-        button.onclick = () => checkAnswerQuiz(option);
-        optionsContainer.appendChild(button);
-    });
+    if (currentQuestionIndex < questions.length) {
+        const questionObj = questions[currentQuestionIndex];
+        document.getElementById('quizQuestion').innerText = `Pregunta ${currentQuestionIndex + 1}/${questions.length}: ${questionObj.question}`;
+        const optionsContainer = document.getElementById('quizOptions');
+        optionsContainer.innerHTML = '';
+
+        questionObj.options.forEach(option => {
+            const button = document.createElement('button');
+            button.innerText = option;
+            button.onclick = () => checkAnswerQuiz(option);
+            optionsContainer.appendChild(button);
+        });
+    }
 }
+
 function checkAnswerQuiz(selectedOption) {
     const questionObj = questions[currentQuestionIndex];
     if (selectedOption === questionObj.correctAnswer) {
         scoreQuiz++;
     }
+
     currentQuestionIndex++;
+
     if (currentQuestionIndex < questions.length) {
-        loadQuestion();
+        setTimeout(loadQuestion, 300);
     } else {
         showQuizResult();
     }
 }
+
 function showQuizResult() {
-    document.getElementById('quizQuestion').innerText = `Has completado el quiz. Tu puntuación es ${scoreQuiz} de ${questions.length}.`;
-    document.getElementById('quizOptions').innerHTML = '';
-}
-window.onload = loadQuestion;
-//fin del juego de preguntas
+    const percentage = (scoreQuiz / questions.length) * 100;
+    let emoji = "";
 
-var cara = new Array(
-    new Array("SRC/1Dado.png", 1),
-    new Array("SRC/2Dado.png", 2),
-    new Array("SRC/3Dado.png", 3),
-    new Array("SRC/4Dado.png", 4),
-    new Array("SRC/5Dado.png", 5),
-    new Array("SRC/6Dado.png", 6)
-);
+    if (percentage >= 80) emoji = "🏆";
+    else if (percentage >= 60) emoji = "👍";
+    else if (percentage >= 40) emoji = "😐";
+    else emoji = "😔";
 
-function Num_dado() {
-
-    if (cara.length > 0) {
-        var random = Math.floor(Math.random() * cara.length);
-        var card = cara[random];
-        document.getElementById("diceResult").innerHTML = "<img src='" + card[0] + "' alt='Carta' width='100' height='150'><br>Número: " + card[1];
-        cara.splice(random, 1);
-    }
+    document.getElementById('quizQuestion').innerText = `${emoji} ¡Quiz completado!`;
+    document.getElementById('quizOptions').innerHTML = `
+        <div style="background: rgba(0,0,0,0.05); padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+            <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">
+                Tu puntuación: ${scoreQuiz} de ${questions.length}
+            </p>
+            <p style="font-size: 1rem;">
+                ${percentage.toFixed(0)}% de aciertos
+            </p>
+            <button onclick="resetQuiz()" style="margin-top: 1rem;">Jugar de nuevo</button>
+        </div>
+    `;
 }
 
-// nigth mode
- const toggleBtn = document.getElementById('dark-mode-toggle');
- const body = document.body;
+function resetQuiz() {
+    currentQuestionIndex = 0;
+    scoreQuiz = 0;
+    loadQuestion();
+}
 
- if(localStorage.getItem('then') === 'dark'){
-    body.classList.add('darkmode')
-    toggleBtn.textContent = 'Modo Claro';
- }
-
- toggleBtn.addEventListener('click', () =>{
-    body.classList.toggle('dark-mode');
-
-     if (body.classList.contains('dark-mode')) {
-         localStorage.setItem('theme', 'dark');
-         toggleBtn.textContent = 'Modo Claro';
-     } else {
-         localStorage.setItem('theme', 'light');
-         toggleBtn.textContent = 'Modo Oscuro';
-     }
- });
-
-// 1. Definimos las reglas
-const REGLAS = [
-    {
-        id: 1,
-        mensaje: "La contraseña debe tener al menos 5 caracteres.",
-        validar: (pass) => pass.length >= 5
-    },
-    {
-        id: 2,
-        mensaje: "Debe incluir al menos un número.",
-        validar: (pass) => /\d/.test(pass)
-    },
-    {
-        id: 3,
-        mensaje: "Debe incluir una mayúscula.",
-        validar: (pass) => /[A-Z]/.test(pass)
-    },
-    {
-        id: 4,
-        mensaje: "Los numeros deben sumar 10.",
-        validar: (pass) => {
-        
-            const numeros = pass.match(/\d/g);
-
-            if(!numeros) return false;
-
-            const suma = numeros.reduce((acumulado, actual) => {
-                return acumulado + numer(actual);
-            }, 0)
-            return suma === 10;
-        }
-    }
+// DADO DE LA SUERTE
+const dadoCaras = [
+    { imagen: "SRC/1Dado.png", numero: 1 },
+    { imagen: "SRC/2Dado.png", numero: 2 },
+    { imagen: "SRC/3Dado.png", numero: 3 },
+    { imagen: "SRC/4Dado.png", numero: 4 },
+    { imagen: "SRC/5Dado.png", numero: 5 },
+    { imagen: "SRC/6Dado.png", numero: 6 }
 ];
 
-// 2. Función principal//
-function comprobar() {
-const pass = document.getElementById('password').value;
-    const contenedorReglas = document.getElementById('errores');
-
-// Limpiamos el contenedor antes de re-comprobar
-contenedorReglas.innerHTML = "";
-
-for (let regla of REGLAS) {
-const esValida = regla.validar(pass);
-
-// Creamos el elemento visual para la regla
-const div = document.createElement('div');
-div.className = esValida ? "regla-valida" : "regla-error";
-div.innerText = (esValida ? "✅ " : "❌ ") + regla.mensaje;
-
-contenedorReglas.appendChild(div);
-
-// Lógica del juego: Si una regla falla, dejamos de mostrar las siguientes
-if (!esValida) break;
-}
+function Num_dado() {
+    const random = Math.floor(Math.random() * dadoCaras.length);
+    const cara = dadoCaras[random];
+    document.getElementById("diceResult").innerHTML = `
+        <img src="${cara.imagen}" alt="Dado ${cara.numero}" width="120" height="120" style="margin-top: 1rem;">
+        <p style="font-size: 1.5rem; font-weight: 700; margin-top: 1rem; color: var(--texto-h1);">
+            🎲 Número: ${cara.numero}
+        </p>
+    `;
 }
 
+// MODO OSCURO
+const toggleBtn = document.getElementById('dark-mode-toggle');
+const body = document.body;
 
+if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️ Modo Claro';
+}
+
+toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        toggleBtn.textContent = '☀️ Modo Claro';
+    } else {
+        localStorage.setItem('theme', 'light');
+        toggleBtn.textContent = '🌙 Modo Oscuro';
+    }
+});
+
+// SUDOKU
+const board = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+];
+
+const solution = [
+    [5, 3, 4, 6, 7, 8, 9, 1, 2],
+    [6, 7, 2, 1, 9, 5, 3, 4, 8],
+    [1, 9, 8, 3, 4, 2, 5, 6, 7],
+    [8, 5, 9, 7, 6, 1, 4, 2, 3],
+    [4, 2, 6, 8, 5, 3, 7, 9, 1],
+    [7, 1, 3, 9, 2, 4, 8, 5, 6],
+    [9, 6, 1, 5, 3, 7, 2, 8, 4],
+    [2, 8, 7, 4, 1, 9, 6, 3, 5],
+    [3, 4, 5, 2, 8, 6, 1, 7, 9]
+];
+
+const gridElement = document.getElementById('grid');
+
+function createGrid() {
+    gridElement.innerHTML = '';
+    for (let row = 0; row < 9; row++) {
+        for (let col = 0; col < 9; col++) {
+            const cell = document.createElement('input');
+            cell.classList.add('cell');
+            cell.type = 'number';
+            cell.min = '1';
+            cell.max = '9';
+
+            cell.dataset.row = row;
+            cell.dataset.col = col;
+
+            if (board[row][col] !== 0) {
+                cell.value = board[row][col];
+                cell.readOnly = true;
+            }
+
+            gridElement.appendChild(cell);
+        }
+    }
+}
+
+function checkResult() {
+    const cells = document.querySelectorAll('.cell');
+    let isCorrect = true;
+    let isComplete = true;
+
+    cells.forEach(cell => {
+        const row = parseInt(cell.dataset.row);
+        const col = parseInt(cell.dataset.col);
+        const value = parseInt(cell.value);
+
+        if (!value) {
+            isComplete = false;
+            return;
+        }
+
+        if (value !== solution[row][col]) {
+            isCorrect = false;
+            cell.style.background = '#fed7d7';
+        } else {
+            cell.style.background = cell.readOnly ? '#e2e8f0' : 'white';
+        }
+    });
+
+    if (!isComplete) {
+        alert('⚠️ Por favor, completa todos los campos antes de verificar.');
+    } else if (isCorrect) {
+        alert('🎉 ¡Felicidades! Has completado el Sudoku correctamente.');
+    } else {
+        alert('❌ Hay algunos errores. Los campos incorrectos están marcados en rojo.');
+    }
+}
+
+// Inicializar el grid al cargar la página
+if (gridElement) {
+    createGrid();
+}
+
+// Inicializar el quiz al cargar la página
+window.onload = function () {
+    loadQuestion();
+    if (gridElement) {
+        createGrid();
+    }
+};

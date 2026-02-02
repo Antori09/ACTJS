@@ -3,36 +3,144 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="Registro.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Reto JS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="SRC/Corazon.jpg">
+    <title>Registro - Reto JS</title>
 </head>
 
 <body>
-    <div class="login-container">
-        <h2>Registro</h2>
+    <header>
+        <div class="cabecera">
+            <h1 class="titulo" onclick="window.location.href='index.html'">🎮 Reto JS</h1>
+            <nav class="opciones">
+                <button class="nav-btn"><a href="index.html">Inicio</a></button>
+                <button class="nav-btn"><a href="iniciarSesion.html">Iniciar Sesión</a></button>
+                <button id="dark-mode-toggle" class="identificacion">🌙 Modo Oscuro</button>
+            </nav>
+        </div>
+    </header>
 
-        <form method="POST">
-            <div class="input-group">
-                <label for="username">Usuario</label>
-                <input type="text" id="username" name="username" placeholder="Nombre completo" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
-                <label type="email">Confirmar email</label>
-                <input type="email" id="email" name="email" placeholder="Confirmar correo electrónico" required>
+    <div class="auth-container">
+        <div class="auth-card auth-card-large">
+            <div class="auth-header">
+                <div class="auth-icon">✨</div>
+                <h1>Crear Cuenta</h1>
+                <p class="auth-subtitle">Únete a nuestra comunidad de jugadores</p>
             </div>
 
-            <div class="input-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="Contraseña" required>
-            </div>
-            <a href="iniciarSesion.html">¿Ya tienes cuenta? Inicia sesión aquí</a><br><br>
-            <button type="submit" class="login-btn"><a href="index.html">Iniciar Sesion</a></button>
-        </form>
+            <form id="registerForm" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">👤 Nombre</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Juan" required
+                            autocomplete="given-name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">👤 Apellido</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Pérez" required
+                            autocomplete="family-name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">🎮 Nombre de Usuario</label>
+                    <input type="text" id="username" name="username" placeholder="jugador_pro123" required
+                        autocomplete="username">
+                    <small class="form-hint">Este será tu nombre visible en el juego</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">📧 Correo Electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required
+                        autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">🔒 Contraseña</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required
+                            autocomplete="new-password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                            👁️
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                        <small id="strengthText">Ingresa una contraseña</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">🔒 Confirmar Contraseña</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                            placeholder="Repite tu contraseña" required autocomplete="new-password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                            👁️
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">🎂 Fecha de Nacimiento</label>
+                    <input type="date" id="birthdate" name="birthdate" required autocomplete="bday">
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span>Acepto los <a href="#" class="auth-link">términos y condiciones</a> y la <a href="#"
+                                class="auth-link">política de privacidad</a></span>
+                    </label>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <span>Quiero recibir novedades y promociones por correo</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-submit-btn">
+                    Crear Cuenta
+                </button>
+
+                <div class="auth-divider">
+                    <span>O regístrate con</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="social-btn google-btn">
+                        <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" alt="Google" width="20">
+                        Google
+                    </button>
+                    <button type="button" class="social-btn github-btn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                        GitHub
+                    </button>
+                </div>
+
+                <p class="auth-footer">
+                    ¿Ya tienes una cuenta? <a href="iniciarSesion.html" class="auth-link">Inicia sesión aquí</a>
+                </p>
+            </form>
+
+            <div id="registerMessage" class="auth-message"></div>
+        </div>
     </div>
-    
+
     <footer>
-        <p>&copy; 2024 Reto JS. Todos los derechos reservados.</p>
+        <p>© 2026 Reto JS. Todos los derechos reservados - Andrés_Torilo_Cordón</p>
+    </footer>
+
+    <script src="auth.js"></script>
 </body>
 
 </html>

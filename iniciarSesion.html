@@ -3,35 +3,94 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="inciarSesion.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Reto JS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="SRC/Corazon.jpg">
+    <title>Iniciar Sesión - Reto JS</title>
 </head>
 
 <body>
+    <header>
+        <div class="cabecera">
+            <h1 class="titulo" onclick="window.location.href='index.html'">🎮 Reto JS</h1>
+            <nav class="opciones">
+                <button class="nav-btn"><a href="index.html">Inicio</a></button>
+                <button class="nav-btn"><a href="registro.html">Registrarse</a></button>
+                <button id="dark-mode-toggle" class="identificacion">🌙 Modo Oscuro</button>
+            </nav>
+        </div>
+    </header>
 
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
-
-        <form method="POST">
-            <div class="input-group">
-                <label for="username">Usuario</label>
-                <input type="text" id="username" name="username" placeholder="nombre de usuario" required>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-icon">🔐</div>
+                <h1>Iniciar Sesión</h1>
+                <p class="auth-subtitle">Bienvenido de nuevo, inicia sesión para continuar</p>
             </div>
 
-            <div class="input-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="contraseña" required>
-            </div>
-            <a href="registro.html">¿No tienes cuenta? Regístrate aquí</a><br><br>
-            <button type="submit" class="login-btn"><a href="index.html">Iniciar Sesion</a></button>
-        </form>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="email">📧 Correo Electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required
+                        autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">🔒 Contraseña</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Tu contraseña" required
+                            autocomplete="current-password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                            👁️
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="auth-submit-btn">
+                    Iniciar Sesión
+                </button>
+
+                <div class="auth-divider">
+                    <span>O continúa con</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="social-btn google-btn">
+                        <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" alt="Google" width="20">
+                        Google
+                    </button>
+                    <button type="button" class="social-btn github-btn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                        GitHub
+                    </button>
+                </div>
+
+                <p class="auth-footer">
+                    ¿No tienes una cuenta? <a href="registro.html" class="auth-link">Regístrate aquí</a>
+                </p>
+            </form>
+
+            <div id="loginMessage" class="auth-message"></div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Reto JS. Todos los derechos reservados.</p>
+        <p>© 2026 Reto JS. Todos los derechos reservados - Andrés_Torilo_Cordón</p>
     </footer>
 
+    <script src="auth.js"></script>
 </body>
 
 </html>
