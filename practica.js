@@ -278,7 +278,6 @@ function resetClicks() {
     document.getElementById('btnAutoClicker').disabled = false;
     document.getElementById('btnAutoClicker').style.opacity = '1';
 
-    location.reload();
 }
 
 // CONVERTIDOR DE TEMPERATURA
