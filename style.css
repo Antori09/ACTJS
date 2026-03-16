@@ -19,25 +19,6 @@
     --success-color: #48bb78;
     --error-color: #f56565;
 }
-.strava-badge- {
-    display: inline-block;
-    height: 48px;
-}
-
-.strava-badge- img {
-    visibility: hidden;
-    height: 48px;
-}
-
-.strava-badge-:hover {
-    background-position: 0 -63px;
-}
-
-.strava-badge-follow {
-    height: 48px;
-    width: 48px;
-    background: url(//badges.strava.com/echelon-sprite-48.png) no-repeat 0 0;
-}
 
 * {
     margin: 0;
@@ -395,7 +376,7 @@ button:active {
 }
 
 /* DEV CLICKER */
-#clickerImage {
+#clickerImage, #clickerImage2 {
     max-width: 200px;
     height: auto;
     border-radius: 20px;
@@ -1130,4 +1111,11 @@ body.dark-mode .github-btn:hover {
     .auth-header h1 {
         font-size: 1.6rem;
     }
+}
+
+.social-media{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }

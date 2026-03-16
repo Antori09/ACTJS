@@ -543,3 +543,8 @@ window.onload = function () {
         createGrid();
     }
 };
+
+function cambiarimagen(){
+    let imagen = document.getElementById("clickerImage2");
+    imagen.src = imagen.src.includes("src/Corazon.jpg") ? "src/Galleta (2).png" : "src/Corazon.jpg";
+}
